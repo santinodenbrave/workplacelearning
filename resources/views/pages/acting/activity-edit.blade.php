@@ -3,7 +3,7 @@
 /** @var App\LearningActivityActing $activity */
 ?>
 
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     {{ __('activity.activities') }} - {{ __('general.edit') }}
 @stop

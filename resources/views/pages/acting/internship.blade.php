@@ -1,4 +1,4 @@
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     {{ __('general.internship') }}
 @stop

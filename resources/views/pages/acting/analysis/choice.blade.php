@@ -3,7 +3,7 @@
 /** @var int $end */
 ?>
 
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     {{ __('analysis.analysis') }}
 @stop

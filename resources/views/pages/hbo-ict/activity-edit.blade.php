@@ -1,4 +1,4 @@
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 
 <?php
 /** @var \App\LearningActivityProducing $activity */use App\ResourcePerson;
@@ -78,7 +78,7 @@ $isCustomActivityDuration = !in_array($activity->duration, [0.25, 0.50, 0.75, 1.
 
         </div>
 
-        {!! Form::open(array('id' => 'taskForm', 'url' => route('process-producing-update', [$activity->lap_id]), 'class' => 'form-horizontal')) !!}
+        {!! Form::open(array('id' => 'taskForm', 'url' => route('process-hbo-ict-update', [$activity->lap_id]), 'class' => 'form-horizontal')) !!}
         <div class="row">
 
             <div class="col-md-3">
@@ -102,7 +102,7 @@ $isCustomActivityDuration = !in_array($activity->duration, [0.25, 0.50, 0.75, 1.
                     @endforeach
 
                 </select>
-                @include('pages.producing.chain-partial')
+                @include('pages.hbo-ict.chain-partial')
 
             </div>
 

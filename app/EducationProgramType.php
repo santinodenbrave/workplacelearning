@@ -54,6 +54,6 @@ class EducationProgramType extends Model
 
     public function isProducing()
     {
-        return \in_array(strtolower($this->eptype_name), ['producing']);
+        return \in_array(strtolower($this->eptype_name), ['hbo-ict']);
     }
 }

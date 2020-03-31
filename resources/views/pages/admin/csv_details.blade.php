@@ -1,4 +1,4 @@
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     Suggestie voor koppelen
 @stop
@@ -13,7 +13,7 @@
     <br /><br />
     @if(count($notKnownStudents ) > 0)
     <div class="alert alert-danger" role="alert">
-    
+
     <h4>{{__('linking.alert')}}</h4>
     <p><strong>{{__('linking.alert-text')}}</strong></p>
     <br>
@@ -53,7 +53,7 @@
                                             <td>{{ $pair->student->firstname}} {{ $pair->student->lastname}} </td>
                                             <td>{{ $pair->student->email}}</td>
                                             <td>{{ $pair->workplace}}</td>
-                            
+
                                         </tr>
                                     @endforeach
                                     </tbody>

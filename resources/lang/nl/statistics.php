@@ -15,7 +15,7 @@ return [
     'select' => 'Bereken statistiek met',
     'activity-type' => 'Leeractiviteittype',
     'couple' => 'Koppel statistiek aan tip',
-    'acting-producing-coupled' => 'Er zijn zowel Acting als Producing statistieken gekoppeld, dit kan problemen opleveren.',
+    'acting-hbo-ict-coupled' => 'Er zijn zowel Acting als Producing statistieken gekoppeld, dit kan problemen opleveren.',
     'predefined' => 'Ingebouwde statistiek',
     'select-statistic' => 'Selecteer de statistiek',
     'when-active' => 'De statistiek is actief als het resultaat van de berekening',

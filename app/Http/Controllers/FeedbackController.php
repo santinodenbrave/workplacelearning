@@ -12,7 +12,7 @@ class FeedbackController
 {
     public function show(Feedback $feedback)
     {
-        return view('pages.producing.feedback')
+        return view('pages.hbo-ict.feedback')
             ->with('lap', $feedback->learningActivityProducing)
             ->with('feedback', $feedback);
     }
@@ -29,7 +29,7 @@ class FeedbackController
         $feedback->support_needed_ed = !$request->has('ondersteuningOpleiding') ? $request->get('ondersteuning_opleiding') : 'Geen';
         $feedback->save();
 
-        return redirect()->route('process-producing')->with(
+        return redirect()->route('process-hbo-ict')->with(
             'success',
             __('activity.feedback-activity-saved')
         );

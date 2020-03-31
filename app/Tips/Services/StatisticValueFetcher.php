@@ -42,7 +42,7 @@ class StatisticValueFetcher
             return $this->learningPeriod->learningActivityActing()->getBaseQuery();
         }
 
-        if ($educationProgramType === 'producing') {
+        if ($educationProgramType === 'hbo-ict') {
             return $this->learningPeriod->learningActivityProducing()->getBaseQuery();
         }
 
@@ -80,7 +80,7 @@ class StatisticValueFetcher
         $this->applyPeriod($builder);
 
         // Hours select can onle be used on a statistic variable
-        if ($statisticVariable->selectType === 'hours' && $statisticVariable->type === 'producing') {
+        if ($statisticVariable->selectType === 'hours' && $statisticVariable->type === 'hbo-ict') {
             return $builder->sum('duration');
         }
 

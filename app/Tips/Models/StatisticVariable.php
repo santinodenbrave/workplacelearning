@@ -64,7 +64,7 @@ class StatisticVariable extends Model
                 ],
             ],
         ],
-        'producing' => [
+        'hbo-ict' => [
             [
                 'class'      => ResourcePersonFilter::class,
                 'name'       => 'Resource person',

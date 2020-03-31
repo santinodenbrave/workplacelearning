@@ -6,7 +6,7 @@
  */
 ?>
 
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     {{ __('general.internship') }}
 @stop
@@ -20,7 +20,7 @@
 
 
             {!! Form::open(array(
-                'url' => (($period->wplp_id === null) ? route('period-producing-create') : route('period-producing-update', ['id' => $period->wplp_id])),
+                'url' => (($period->wplp_id === null) ? route('period-hbo-ict-create') : route('period-hbo-ict-update', ['id' => $period->wplp_id])),
                 'data-toggle' => 'validator'))
              !!}
             <div class="col-lg-5">

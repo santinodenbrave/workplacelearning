@@ -17,7 +17,7 @@ class StatisticStoreRequest extends FormRequest
     {
         return [
             'name'                   => 'required|max:255',
-            'education_program_type' => 'required|in:acting,producing',
+            'education_program_type' => 'required|in:acting,hbo-ict',
             'select_type'            => 'required|in:count,hours',
             'operator'               => 'numeric|min:0|max:3',
         ];

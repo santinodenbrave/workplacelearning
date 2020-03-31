@@ -2,7 +2,7 @@
 /** @var App\Tips\EvaluatedTip[] $evaluatedTips */
 /** @var App\Tips\EvaluatedTip $evaluatedTip */
 ?>
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     {{ __('analysis.detail') }}
 @stop
@@ -40,7 +40,7 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <a href="{{ route('analysis-producing-choice') }}" class="btn">{{__('analyses.back-to-choice')}}</a>
+                    <a href="{{ route('analysis-hbo-ict-choice') }}" class="btn">{{__('analyses.back-to-choice')}}</a>
                     <h1>{{ __('tips.personal-tip') }}s</h1>
 
 

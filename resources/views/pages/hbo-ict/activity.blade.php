@@ -8,7 +8,7 @@ use App\ResourcePerson;
 /** @var Category[] $categories */
 /** @var Chain[] $chains */
 ?>
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     Activiteiten
 @stop
@@ -61,14 +61,14 @@ use App\ResourcePerson;
                             aria-hidden="true"></i> {{ __('activity.how-does-this-page-work') }}</h4>
                 <div id="help-text" style="display: none">
                     <ol>
-                        <li>{{ __('activity.producing.steps.1') }}</li>
-                        <li>{{ __('activity.producing.steps.2') }}</li>
-                        <li>{{ __('activity.producing.steps.3') }}</li>
-                        <li>{{ __('activity.producing.steps.4') }}</li>
-                        <li>{{ __('activity.producing.steps.5') }}</li>
-                        <li>{{ __('activity.producing.steps.6') }}</li>
-                        <li>{{ __('activity.producing.steps.7') }}</li>
-                        <li>{{ __('activity.producing.steps.8') }}</li>
+                        <li>{{ __('activity.hbo-ict.steps.1') }}</li>
+                        <li>{{ __('activity.hbo-ict.steps.2') }}</li>
+                        <li>{{ __('activity.hbo-ict.steps.3') }}</li>
+                        <li>{{ __('activity.hbo-ict.steps.4') }}</li>
+                        <li>{{ __('activity.hbo-ict.steps.5') }}</li>
+                        <li>{{ __('activity.hbo-ict.steps.6') }}</li>
+                        <li>{{ __('activity.hbo-ict.steps.7') }}</li>
+                        <li>{{ __('activity.hbo-ict.steps.8') }}</li>
                     </ol>
                 </div>
             </div>
@@ -80,7 +80,7 @@ use App\ResourcePerson;
         <div id="taskFormError" class="alert alert-error" style="display: none">
 
         </div>
-        {!! Form::open(array('id' => 'taskForm', 'url' => route('process-producing-create'))) !!}
+        {!! Form::open(array('id' => 'taskForm', 'url' => route('process-hbo-ict-create'))) !!}
         <div class="row">
 
 
@@ -115,7 +115,7 @@ use App\ResourcePerson;
 
                 </select>
 
-                @include('pages.producing.chain-partial')
+                @include('pages.hbo-ict.chain-partial')
             </div>
             <div class="col-md-3">
                 <div class="buttons numpad">
@@ -274,7 +274,7 @@ use App\ResourcePerson;
                                                            data-toggle="tooltip" data-placement="bottom"
                                                            title="{{ trans('tooltips.producing_difficulty') }}"></i>
                     </h4>
-                    <div id="easycontainer"> 
+                    <div id="easycontainer">
                         <label><input type="radio" name="moeilijkheid" value="1"
                                   checked/><span>{{ __('activity.easy') }}</span></label>
                     </div>
@@ -332,7 +332,7 @@ use App\ResourcePerson;
             window.activities = {!! $activitiesJson !!};
             window.exportTranslatedFieldMapping = {!! $exportTranslatedFieldMapping !!};
             window.activityProducingTableMode = 'mini';
-            window.progressLink = '{{ route('progress-producing') }}';
+            window.progressLink = '{{ route('progress-hbo-ict') }}';
         </script>
 
         <div id="ActivityProducingProcessTable" class="__reactRoot col-md-12"></div>

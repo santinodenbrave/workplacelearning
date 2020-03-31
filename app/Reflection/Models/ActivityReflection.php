@@ -37,7 +37,7 @@ class ActivityReflection extends Model
     public $timestamps = false;
 
     public const LEARNING_ACTIVITY_ACTING = 'acting';
-    public const LEARNING_ACTIVITY_PRODUCING = 'producing';
+    public const LEARNING_ACTIVITY_PRODUCING = 'hbo-ict';
     public const LEARNING_ACTIVITY_TYPE = [LearningActivityActing::class    => self::LEARNING_ACTIVITY_ACTING,
                                            LearningActivityProducing::class => self::LEARNING_ACTIVITY_PRODUCING,
     ];

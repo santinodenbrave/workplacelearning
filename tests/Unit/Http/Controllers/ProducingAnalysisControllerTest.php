@@ -33,7 +33,7 @@ class ProducingAnalysisControllerTest extends TestCase
         $redirectResponse->expects(self::once())->method('withErrors')->withAnyParameters();
 
         $redirector = $this->createMock(Redirector::class);
-        $redirector->expects(self::once())->method('route')->with('home-producing')->willReturn($redirectResponse);
+        $redirector->expects(self::once())->method('route')->with('home-hbo-ict')->willReturn($redirectResponse);
 
         $analysisCollector = $this->createMock(ProducingAnalysisCollector::class);
         $analysisCollector->expects(self::once())->method('getFullWorkingDays')->with('all', 'all')->willReturn(1);

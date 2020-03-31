@@ -5,7 +5,7 @@
  * This project was commissioned by HU University of Applied Sciences.
  */
 ?>
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     {{ __('home.progress') }}
 @stop
@@ -18,7 +18,7 @@
                 <h3>{{ __('general.weekstates') }}</h3>
                 <div id="ProducingWeekStatesExport" class="__reactRoot" data-latest="{{ $weekStatesDates['latest'] }}"
                      data-earliest="{{ $weekStatesDates['earliest'] }}"
-                     data-url="{{ route('report-producing-export') }}"></div>
+                     data-url="{{ route('report-hbo-ict-export') }}"></div>
             </div>
         </div>
         <div class="row" style="margin-top:50px;">

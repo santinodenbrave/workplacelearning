@@ -76,17 +76,17 @@ class TaskTypeRedirect
             switch ($route->getName()) {
                 case 'home':
                 case 'default':
-                    return $this->redirector->route('home-producing');
+                    return $this->redirector->route('home-hbo-ict');
                 case 'process':
-                    return $this->redirector->route('process-producing');
+                    return $this->redirector->route('process-hbo-ict');
                 case 'analysis':
-                    return $this->redirector->route('analysis-producing-choice');
+                    return $this->redirector->route('analysis-hbo-ict-choice');
                 case 'progress':
-                    return $this->redirector->route('progress-producing');
+                    return $this->redirector->route('progress-hbo-ict');
                 case 'period':
-                    return $this->redirector->route('period-producing');
+                    return $this->redirector->route('period-hbo-ict');
                 case 'period-edit':
-                    return $this->redirector->route('period-producing-edit', ['id' => $route->parameter('id')]);
+                    return $this->redirector->route('period-hbo-ict-edit', ['id' => $route->parameter('id')]);
             }
         }
 

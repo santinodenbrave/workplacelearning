@@ -1,4 +1,4 @@
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title', 'Dashboard')
 @section('content')
     <div class="container-fluid">

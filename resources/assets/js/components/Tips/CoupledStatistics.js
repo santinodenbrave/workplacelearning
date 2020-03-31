@@ -97,7 +97,7 @@ class CoupledStatistics extends React.Component {
                  id="step-16">
                 {hasProducingCoupled && hasActingCoupled &&
                 <div className="alert alert-danger text-danger" role="alert">
-                    {Lang.get('statistics.acting-producing-coupled')}
+                    {Lang.get('statistics.acting-hbo-ict-coupled')}
                 </div>}
                 <div>
                     {

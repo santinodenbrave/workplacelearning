@@ -8,7 +8,7 @@
 /** @var App\LearningActivityProducing $lap */
 /** @var App\Feedback $feedback */
 ?>
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     {{ __('activity.feedback.feedback') }}
 @stop
@@ -66,7 +66,7 @@
                             ({{ __($lap->resourceMaterial->rm_label) }}
                             : {{ $lap->res_material_detail }})
                         @elseif($lap->resourcePerson)
-                            ({{ __('activity.producing.person') }}
+                            ({{ __('activity.hbo-ict.person') }}
                             : {{ $lap->resourcePerson->localizedLabel()  }})
                         @else
                             ({{ __('activity.alone')  }})
@@ -77,7 +77,7 @@
             </div>
         </div>
 
-        {!! Form::open(array('id' => 'feedbackForm', 'url' => route('feedback-producing-update', [$feedback->fb_id]))) !!}
+        {!! Form::open(array('id' => 'feedbackForm', 'url' => route('feedback-hbo-ict-update', [$feedback->fb_id]))) !!}
         <div class="row well">
             <h2>{{ __('activity.feedback.lookback') }}</h2>
 

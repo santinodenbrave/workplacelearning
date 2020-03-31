@@ -72,7 +72,7 @@ class CanvasRegistrationController extends Controller
         if ($student->educationProgram->educationprogramType->isActing()) {
             $route = 'home-acting';
         } else {
-            $route = 'home-producing';
+            $route = 'home-hbo-ict';
         }
 
         return $this->redirector->route($route)

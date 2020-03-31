@@ -300,40 +300,40 @@ Route::middleware(['auth', 'verified'])->group(static function (): void {
             });
         });
 
-        Route::prefix('producing')->group(static function (): void {
-            Route::get('home', 'HomeController@showProducingTemplate')->name('home-producing');
+        Route::prefix('hbo-ict')->group(static function (): void {
+            Route::get('home', 'HomeController@showProducingTemplate')->name('home-hbo-ict');
 
             Route::get('period/create', 'ProducingWorkplaceLearningController@show')
                 ->middleware(['can:create,App\Workplace', 'can:create,App\WorkplaceLearningPeriod'])
-                ->name('period-producing');
+                ->name('period-hbo-ict');
 
             Route::post('period/create', 'ProducingWorkplaceLearningController@create')
                 ->middleware(['can:create,App\Workplace', 'can:create,App\WorkplaceLearningPeriod'])
-                ->name('period-producing-create');
+                ->name('period-hbo-ict-create');
 
             Route::get('period/edit/{workplaceLearningPeriod}', 'ProducingWorkplaceLearningController@edit')
                 ->middleware(['can:update,workplaceLearningPeriod'])
-                ->name('period-producing-edit');
+                ->name('period-hbo-ict-edit');
 
             Route::post('period/update/{workplaceLearningPeriod}', 'ProducingWorkplaceLearningController@update')
                 ->middleware(['can:update,workplaceLearningPeriod'])
-                ->name('period-producing-update');
+                ->name('period-hbo-ict-update');
 
             Route::middleware(RequireActiveInternship::class)->group(static function (): void {
-                Route::get('progress', 'ProducingActivityController@progress')->name('progress-producing');
+                Route::get('progress', 'ProducingActivityController@progress')->name('progress-hbo-ict');
 
                 Route::get('report/export',
-                    'ProducingReportController@wordExport')->name('report-producing-export');
+                    'ProducingReportController@wordExport')->name('report-hbo-ict-export');
 
                 Route::get('analysis',
-                    'ProducingAnalysisController@showChoiceScreen')->name('analysis-producing-choice');
+                    'ProducingAnalysisController@showChoiceScreen')->name('analysis-hbo-ict-choice');
                 Route::get('analysis/{year}/{month}', 'ProducingAnalysisController@showDetail')
                     ->where(['year' => '^(20)(\d{2})|all$', 'month' => '^([0-1]{1}\d{1})|all$'])
-                    ->name('analysis-producing-detail');
+                    ->name('analysis-hbo-ict-detail');
 
-                Route::get('feedback/{feedback}', 'FeedbackController@show')->name('feedback-producing');
+                Route::get('feedback/{feedback}', 'FeedbackController@show')->name('feedback-hbo-ict');
                 Route::post('feedback/update/{feedback}',
-                    'FeedbackController@update')->name('feedback-producing-update');
+                    'FeedbackController@update')->name('feedback-hbo-ict-update');
 
                 Route::post('/chain/create', 'ChainController@create')->name('chain-create');
                 Route::put('/chain/{chain}', 'ChainController@save')->name('chain-save');
@@ -342,24 +342,24 @@ Route::middleware(['auth', 'verified'])->group(static function (): void {
                 Route::prefix('process')->group(static function (): void {
                     Route::get('/', 'ProducingActivityController@show')
                         ->middleware('can:create,App\LearningActivityProducing')
-                        ->name('process-producing');
+                        ->name('process-hbo-ict');
 
                     Route::post('/create', 'ProducingActivityController@create')
                         ->middleware('can:create,App\LearningActivityProducing')
-                        ->name('process-producing-create');
+                        ->name('process-hbo-ict-create');
 
                     Route::get('/edit/{learningActivityProducing}', 'ProducingActivityController@edit')
                         ->middleware('can:update,learningActivityProducing')
-                        ->name('process-producing-edit');
+                        ->name('process-hbo-ict-edit');
 
                     Route::post('/update/{learningActivityProducing}', 'ProducingActivityController@update')
                         ->middleware('can:update,learningActivityProducing')
-                        ->name('process-producing-update');
+                        ->name('process-hbo-ict-update');
 
                     Route::get('/delete/{learningActivityProducing}', 'ProducingActivityController@delete')
                         ->middleware('can:delete,learningActivityProducing')
-                        ->name('process-producing-delete');
-                }); // Actions relating to producing activities
+                        ->name('process-hbo-ict-delete');
+                }); // Actions relating to hbo-ict activities
             });
         });
 

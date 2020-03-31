@@ -54,7 +54,7 @@ class HomeController extends Controller
             $itemExists = $savedLearningItemRepository->itemExists('tip', $evaluatedTip->getTip()->id, $student->student_id);
         }
 
-        return view('pages.producing.home', [
+        return view('pages.hbo-ict.home', [
             'evaluatedTip' => $evaluatedTip ?? null,
             'itemExists' => $itemExists ?? false
         ]);

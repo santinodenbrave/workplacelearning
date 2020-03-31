@@ -15,7 +15,7 @@ return [
     'select' => 'Calculate statistic with',
     'activity-type' => 'Learning activity type',
     'couple' => 'Couple statistic to tip',
-    'acting-producing-coupled' => 'Both Acting and Producing statistics are coupled, this can create issues.',
+    'acting-hbo-ict-coupled' => 'Both Acting and Producing statistics are coupled, this can create issues.',
     'predefined' => 'Predefined statistic',
     'select-statistic' => 'Select the statistic',
     'when-active' => 'The statistic is active when the result of the calculation is',

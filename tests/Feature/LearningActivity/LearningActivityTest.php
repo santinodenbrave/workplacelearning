@@ -54,12 +54,12 @@ class LearningActivityTest extends \Tests\TestCase
 
     public function testCreateLAP(): void
     {
-        $user = $this->getUser('producing');
+        $user = $this->getUser('hbo-ict');
 
         $difficulty = (new Difficulty(['difficulty_id' => 1, 'makkelijk']))->save();
         $status = (new Status(['status_id' => 1, 'status_label' => 'finished']))->save();
 
-        $response = $this->actingAs($user)->post('/producing/process/create', [
+        $response = $this->actingAs($user)->post('/hbo-ict/process/create', [
             'datum'         => Carbon::now()->format('d-m-Y'),
             'omschrijving'  => 'Some test activity!',
             'aantaluren'    => '2',
@@ -75,7 +75,7 @@ class LearningActivityTest extends \Tests\TestCase
         ]);
 
         // Controller redirects back to process creation page -- consider that success
-        $response->assertJson(['status' => 'success', 'url' => 'https://localhost/producing/process']);
+        $response->assertJson(['status' => 'success', 'url' => 'https://localhost/hbo-ict/process']);
         $this->assertDatabaseHas('learningactivityproducing', ['description' => 'Some test activity!']);
     }
 

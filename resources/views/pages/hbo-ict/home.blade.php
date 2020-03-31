@@ -1,4 +1,4 @@
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     Home
 @stop
@@ -11,7 +11,7 @@
                     @if($evaluatedTip !== null)
                         <div class="alert" style="background-color: #00A1E2; color: white; margin-left:2px;"
                              role="alert">
-                            
+
                             <?php
                             /** @var bool $itemExists */
                             ?>
@@ -30,7 +30,7 @@
 
                             <p class="text-right">
                                 <a class="alert-link" style="color: white;"
-                                   href="{{ route('analysis-producing-detail', ['year' => 'all', 'month' => 'all']) }}">{{ __('tips.see-more') }}</a>
+                                   href="{{ route('analysis-hbo-ict-detail', ['year' => 'all', 'month' => 'all']) }}">{{ __('tips.see-more') }}</a>
                             </p>
                         </div>
                     @endif

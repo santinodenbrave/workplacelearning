@@ -59,7 +59,7 @@ return [
     'educprogram-manage' => 'Beheer en creeër opleidingen',
     'educprogram-add' => 'Opleiding toevoegen',
     'acting' => 'Acting',
-    'producing' => 'Producing',
+    'hbo-ict' => 'Producing',
     'add' => 'Toevoegen',
     'none-selected' => 'Geen geselecteerd',
     'save' => 'Opslaan',

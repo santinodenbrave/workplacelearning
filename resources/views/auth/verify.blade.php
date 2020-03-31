@@ -1,4 +1,4 @@
-@extends('layout.HUlogin')
+@extends('layouts.HUlogin')
 @section('title')
     {{ __('auth.verification.title') }}
 @stop

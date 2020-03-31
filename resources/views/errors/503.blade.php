@@ -1,4 +1,4 @@
-@extends('layout.HUerror')
+@extends('layouts.HUerror')
 @section('httperrno')
     503
 @stop

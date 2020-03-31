@@ -5,7 +5,7 @@
  * This project was commissioned by HU University of Applied Sciences.
  */
 ?>
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     {{ __('home.progress') }}
 @stop

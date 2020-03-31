@@ -36,7 +36,7 @@ return array(
     'query-data-expired' => 'De query data is ververst',
     'remove-error' => 'Failed to remove the analysis from the database.',
     'removed' => 'Analysis has been removed from the database',
-    'producing' => [
+    'hbo-ict' => [
         'ordered-list-monthly-activities' => 'Below you see an ordered list of the activities of this month.',
         'activities-lookback' => 'You can look back on and see what you find difficult this month and how you managed to continue. You could discuss this information with your workplace or internship teacher during a progress interview.',
         'show-details' => 'Show Details',

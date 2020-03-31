@@ -3,7 +3,7 @@
 /** @var App\Tips\EvaluatedTip $evaluatedTip */
 ?>
 
-@extends('layout.HUdefault')
+@extends('layouts.HUdefault')
 @section('title')
     Analyse
 @stop
