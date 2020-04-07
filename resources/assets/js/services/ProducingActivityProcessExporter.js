@@ -13,7 +13,7 @@ export default class ProducingActivityProcessExporter {
     }
 
     getFeedbackUrl(id) {
-        return "https://" + window.location.hostname + '/hbo-ict/feedback/' + id;
+        return "https://" + window.location.hostname + '/producing/feedback/' + id;
     }
 
     csv() {

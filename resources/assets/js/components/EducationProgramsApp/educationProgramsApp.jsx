@@ -125,7 +125,7 @@ export default class educationProgramsApp extends React.Component {
                 <select value={this.state.newProgramType}
                         onChange={this.onChangeEducationProgramType} className="form-control">
                     <option value="1">{Lang.get('react.acting')}</option>
-                    <option value="2">{Lang.get('react.hbo-ict')}</option>
+                    <option value="2">{Lang.get('react.producing')}</option>
                 </select>
                 <br/>
                 <span className="btn btn-success fill"

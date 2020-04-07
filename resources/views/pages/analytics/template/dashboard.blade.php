@@ -19,7 +19,7 @@
                         <form action="{{route('template.destroy', $template->id)}}" method="post" class="frmDelete">
                             {{ csrf_field() }}
                             {{ method_field('delete') }}
-                            <button class="btn btn-danger" id="delete" title="DeleteTemplate" style="margin-top: 3px">&times;
+                            <button class="btn btn-danger" id="delete" title="DeleteTemplate" style=" ">&times;
                             </button>
                         </form>
                     </div>

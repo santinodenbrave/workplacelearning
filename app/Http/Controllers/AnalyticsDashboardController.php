@@ -59,7 +59,7 @@ class AnalyticsDashboardController extends Controller
     {
         $analyses = $this->analysis->has('charts')->get();
 
-        return view('pages.analytics.dashboard.add', compact('analyses'));
+        return view('pages.analytics.dashboard.create', compact('analyses'));
     }
 
     /**

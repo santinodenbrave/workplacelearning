@@ -45,7 +45,7 @@ class EditWorkplaceLearningPeriod extends Controller
                 [$student, $workplaceLearningPeriod]);
         }
 
-        return view('pages.admin.workplace_learning_period_details')
+        return view('users.admin.workplace_learning_period_details')
             ->with('wplp', $workplaceLearningPeriod)
             ->with('cohorts', $this->cohortRepository->cohortsAvailableForStudent($workplaceLearningPeriod->student))
             ->with('canUpdateCohort', !$workplaceLearningPeriod->hasActivities());

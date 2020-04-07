@@ -1,28 +1,28 @@
 <!-- Sidebar -->
 <div class="sidebar-nav">
     @if(Auth::user()->isStudent())
-        @include('includes._sidebar_student')
+        @include('layouts.partials.sidebar.partials.student')
         <div class="clearfix"></div>
         <br/>
     @endif
 
     @if(Auth::user()->isTeacher())
-        @include('includes._sidebar_teacher')
+        @include('layouts.partials.sidebar.partials.teacher')
         <div class="clearfix"></div>
         <br/>
     @endif
 
     @if(Auth::user()->isAdmin())
         <h1 class="sidebar-title">{{ __('general.student') }}</h1>
-        @include('includes._sidebar_student')
+        @include('layouts.partials.sidebar.partials.student')
         <div class="clearfix custom-hr"></div>
-        
+
         <h1 class="sidebar-title">{{ __('general.teacher') }}</h1>
-        @include('includes._sidebar_teacher')
+        @include('layouts.partials.sidebar.partials.teacher')
         <div class="clearfix custom-hr"></div>
-        
+
         <h1 class="sidebar-title">{{ __('general.admin') }}</h1>
-        @include('includes._sidebar_admin')
+        @include('layouts.partials.sidebar.partials.admin')
         <div class="clearfix custom-hr"></div>
         <br/>
     @endif

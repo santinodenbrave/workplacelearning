@@ -82,7 +82,7 @@ $factory->define(\App\EducationProgramType::class, function () {
 $factory->state(\App\EducationProgramType::class, 'acting', function () {
     return ['eptype_id' => 1, 'eptype_name' => 'Acting'];
 });
-$factory->state(\App\EducationProgramType::class, 'hbo-ict', function () {
+$factory->state(\App\EducationProgramType::class, 'producing', function () {
     return ['eptype_id' => 2, 'eptype_name' => 'Producing'];
 });
 
@@ -94,9 +94,9 @@ $factory->state(\App\EducationProgram::class, 'acting', function () {
     ];
 });
 
-$factory->state(\App\EducationProgram::class, 'hbo-ict', function () {
+$factory->state(\App\EducationProgram::class, 'producing', function () {
     return [
-        'eptype_id' => function () {return factory(\App\EducationProgramType::class)->states('hbo-ict')->create()->eptype_id; },
+        'eptype_id' => function () {return factory(\App\EducationProgramType::class)->states('producing')->create()->eptype_id; },
     ];
 });
 

@@ -67,7 +67,7 @@ class SavedLearningItemController extends Controller
         if ($student->educationProgram->educationprogramType->isActing()) {
             $url = route('home-acting');
         } else {
-            $url = route('home-hbo-ict');
+            $url = route('home-producing');
         }
 
         $itemExists = $this->savedLearningItemRepository->itemExists($category, $item_id, $student->student_id);

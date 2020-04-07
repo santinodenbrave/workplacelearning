@@ -41,13 +41,13 @@ class ProducingAnalysisController
 
         // Check if for the workplace the user has hours registered
         if (!$period->hasLoggedHours()) {
-            return $this->redirector->route('home-hbo-ict')->withErrors([__('notifications.generic.nointernshipregisteredactivities')]);
+            return $this->redirector->route('home-producing')->withErrors([__('notifications.generic.nointernshipregisteredactivities')]);
         }
 
         $start = $period->startdate->modify('first day of this month')->format('Y-m-d');
         $end = $period->enddate->format('Y-m-d');
 
-        return view('pages.hbo-ict.analysis.choice', [
+        return view('users.student.producing.analysis.choice', [
             'period'    => $period,
             'numdays'   => $producingAnalysisCollector->getFullWorkingDays('all', 'all'),
             'start'     => strtotime($start),
@@ -70,7 +70,7 @@ class ProducingAnalysisController
         TipPicker $tipPicker,
         ProducingAnalysis $producingAnalysis
     ) {
-        // Create new Analysis for the hbo-ict student
+        // Create new Analysis for the producing student
         $producingAnalysis->buildData($year, $month);
 
         $period = $this->currentPeriodResolver->getPeriod();
@@ -80,7 +80,7 @@ class ProducingAnalysisController
         $evaluatedTips = $tipPicker->pick($applicableEvaluatedTips, 3);
         $tipPicker->markTipsViewed($evaluatedTips);
 
-        return view('pages.hbo-ict.analysis.detail', [
+        return view('users.student.producing.analysis.detail', [
             'evaluatedTips'     => $evaluatedTips,
             'producingAnalysis' => $producingAnalysis,
             'analysis'          => $producingAnalysis->analysisData,

@@ -48,7 +48,7 @@ class ActingAnalysisController
         $start = $period->startdate->modify('first day of this month')->format('Y-m-d');
         $end = $period->enddate->format('Y-m-d');
 
-        return view('pages.acting.analysis.choice', [
+        return view('users.student.acting.analysis.choice', [
             'start'     => strtotime($start),
             'end'       => strtotime($end),
             'formatter' => new IntlDateFormatter(
@@ -84,7 +84,7 @@ class ActingAnalysisController
         $evaluatedTips = $tipPicker->pick($applicableEvaluatedTips, 3);
         $tipPicker->markTipsViewed($evaluatedTips);
 
-        return view('pages.acting.analysis.detail', [
+        return view('users.student.acting.analysis.detail', [
             'evaluatedTips'  => $evaluatedTips,
             'actingAnalysis' => $analysis,
         ]);

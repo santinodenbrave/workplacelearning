@@ -34,7 +34,7 @@
                 <div class="modal-body">
                     <div id="reflectionFormWrapper">
                         <input type="hidden" name="reflection_id" value="{{$reflection->id}}"/>
-                        @include('pages.acting.reflection-form', ['type' => $reflection->reflection_type, 'fields' => $reflection->renderableFields()])
+                        @include('users.student.acting.reflection-form', ['type' => $reflection->reflection_type, 'fields' => $reflection->renderableFields()])
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -83,7 +83,7 @@ return [
         '3' => 'Let\'s create a new statistic.',
         '4' => 'First pick a name for the new statistic.',
         '5' => 'Select which type of learning activities should be used.',
-        '6' => 'Select whether the calculation should be done with the amount of activities or the total hour sum of the activities. Note, only hbo-ict statistics can use the hours option.',
+        '6' => 'Select whether the calculation should be done with the amount of activities or the total hour sum of the activities. Note, only producing statistics can use the hours option.',
         '7' => 'Now define the filters. For example only activities with the Resource Person "Alone".',
         '8' => 'Tip!, You can put multiple values in a filter by separating them with " || ". For example "Alone || Supervisor".',
         '9' => 'Select the type of calculation, for example a division (/).',

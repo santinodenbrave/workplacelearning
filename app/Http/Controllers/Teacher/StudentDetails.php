@@ -24,7 +24,7 @@ class StudentDetails extends Controller
     public function __invoke(Student $student)
     {
         $teacher = $this->currentUserResolver->getCurrentUser();
-        
+
         // all wplps of the student where the logged-in teacher is the supervisor.
         $workplaces = $student->getWorkplaceLearningPeriods()
             ->filter(function (WorkplaceLearningPeriod $workplaceLearningPeriod) use ($teacher) {
@@ -33,11 +33,11 @@ class StudentDetails extends Controller
             ->map(static function (WorkplaceLearningPeriod $workplaceLearningPeriod) {
                 return $workplaceLearningPeriod->workplace;
             })->all();
-        
+
         $currentWorkplace = $student->getCurrentWorkplace();
         $workplace = in_array($currentWorkplace, $workplaces) ? $currentWorkplace : reset($workplaces);
-        
-        return view('pages.teacher.student_details')
+
+        return view('users.teacher.student_details')
             ->with('student', $student)
             ->with('workplace', $workplace);
     }

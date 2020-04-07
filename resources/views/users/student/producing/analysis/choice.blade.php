@@ -53,13 +53,13 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>{{ __('elements.analysis.choice') }}</h3>
-                <a href="{{ route('analysis-hbo-ict-detail', ['month' => 'all', 'year' => 'all']) }}">
+                <a href="{{ route('analysis-producing-detail', ['month' => 'all', 'year' => 'all']) }}">
                     {{ __('elements.analysis.showall') }}
                 </a>
                 <br/>
                 @while($end >= $start)
                     @if($end <= strtotime((new DateTime)->modify('last day of this month')->format('Y-m-d')))
-                        <a href="{{ route('analysis-hbo-ict-detail', ['month' => date('m', $end), 'year' => date('Y', $end)]) }}">
+                        <a href="{{ route('analysis-producing-detail', ['month' => date('m', $end), 'year' => date('Y', $end)]) }}">
                             {{ ucwords($formatter->format($end)) }}
                         </a>
                         <br/>

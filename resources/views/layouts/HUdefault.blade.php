@@ -8,24 +8,24 @@
 <!doctype html>
 <html>
 <head>
-    @include('includes.head')
+    @include('layouts.partials.head.head')
     <title>@yield('title') - {{ __('general.werkplekleren') }}</title>
 </head>
 <body>
 
 <!-- Top Bar -->
 <div id="menu-bar">
-    @include('includes.header')
+    @include('layouts.partials.header.header')
 </div>
 <div id="wrapper">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-        @include('includes.sidebar')
+        @include('layouts.partials.sidebar.sidebar')
     </div>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-        @include('includes.notification')
+        @include('layouts.partials.notification.notification')
         @yield('content')
     </div>
 

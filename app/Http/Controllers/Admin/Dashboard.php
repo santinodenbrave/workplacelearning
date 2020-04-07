@@ -24,7 +24,7 @@ class Dashboard extends Controller
     {
         $students = $this->studentRepository->search($request->get('filter', []), 25, ['educationProgram']);
 
-        return view('pages.admin.dashboard', [
+        return view('users.admin.dashboard.index', [
             'students' => $students,
             'filters'  => $this->studentRepository->getSearchFilters(),
         ]);

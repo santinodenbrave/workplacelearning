@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+o<div class="panel panel-default">
     <div class="panel-body">
         {{ $slot }}
     </div>

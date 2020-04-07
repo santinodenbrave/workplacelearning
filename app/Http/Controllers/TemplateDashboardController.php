@@ -60,7 +60,7 @@ class TemplateDashboardController extends Controller
             $columnNames[$table] = DB::connection('dashboard')->getSchemaBuilder()->getColumnListing($table);
         }
 
-        return view('pages.analytics.template.create_template', compact('paramTypes', 'typeNames', 'template', 'parameters',
+        return view('pages.analytics.template.create', compact('paramTypes', 'typeNames', 'template', 'parameters',
             'tableNames', 'columnNames'));
     }
 

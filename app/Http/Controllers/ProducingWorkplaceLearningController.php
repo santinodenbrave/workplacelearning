@@ -51,7 +51,7 @@ class ProducingWorkplaceLearningController extends Controller
         $period = new WorkplaceLearningPeriod();
         $period->hours_per_day = 7.5; // Default hours per day for a new period
 
-        return view('pages.hbo-ict.internship')
+        return view('users.student.producing.internship')
             ->with('period', $period)
             ->with('workplace', $workplace)
             ->with('cohorts', $this->cohortRepository->cohortsAvailableForStudent($this->currentUserResolver->getCurrentUser()));
@@ -64,7 +64,7 @@ class ProducingWorkplaceLearningController extends Controller
                 ->with('error', __('general.profile-permission'));
         }
 
-        return view('pages.hbo-ict.internship')
+        return view('users.student.producing.internship')
             ->with('period', $workplaceLearningPeriod)
             ->with('workplace', $workplaceLearningPeriod->workplace)
             ->with('categories', $workplaceLearningPeriod->categories)
@@ -96,7 +96,7 @@ class ProducingWorkplaceLearningController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('period-hbo-ict-create')
+                ->route('period-producing-create')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -167,7 +167,7 @@ class ProducingWorkplaceLearningController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('period-hbo-ict-edit', ['workplaceLearningPeriod' => $workplaceLearningPeriod])
+                ->route('period-producing-edit', ['workplaceLearningPeriod' => $workplaceLearningPeriod])
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -240,7 +240,7 @@ class ProducingWorkplaceLearningController extends Controller
         if ($validator->fails()) {
             // Noes. errors occured. Exit back to profile page with errors
             return redirect()
-                ->route('period-hbo-ict-edit',
+                ->route('period-producing-edit',
                     ['workplaceLearningPeriod' => Auth::user()->getCurrentWorkplaceLearningPeriod()])
                 ->withErrors($validator)
                 ->withInput();
@@ -258,6 +258,6 @@ class ProducingWorkplaceLearningController extends Controller
         }
 
         // Done, redirect back to profile page
-        return redirect()->route('period-hbo-ict-edit', ['id' => $id])->with('succes', __('general.edit-saved'));
+        return redirect()->route('period-producing-edit', ['id' => $id])->with('succes', __('general.edit-saved'));
     }
 }

@@ -40,7 +40,7 @@ class LearningActivityProducingExportBuilder
                 'difficulty'      => $this->translator->get('general.'.strtolower($activity->difficulty->difficulty_label)),
                 'difficultyValue' => $activity->difficulty->difficulty_id,
                 'status'          => $this->translator->get('general.'.strtolower($activity->status->status_label)),
-                'url'             => route('process-hbo-ict-edit', [$activity->lap_id]),
+                'url'             => route('process-producing-edit', [$activity->lap_id]),
                 'chain'           => $this->formatChain($activity),
                 'feedback'              => (static function () use ($activity) {
                     if ($activity->feedback === null) {
@@ -88,7 +88,7 @@ class LearningActivityProducingExportBuilder
         }
 
         if ($learningActivityProducing->resourcePerson) {
-            return $this->translator->get('activity.hbo-ict.person').': '.__($learningActivityProducing->resourcePerson->localizedLabel());
+            return $this->translator->get('activity.producing.person').': '.__($learningActivityProducing->resourcePerson->localizedLabel());
         }
 
         return $this->translator->get('activity.alone');

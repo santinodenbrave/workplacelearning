@@ -29,9 +29,9 @@
                                 @foreach($filters as $filter)
 
                                     @if($filter->isTextType())
-                                        @include('pages.admin.filters.filter_text', ['filter' => $filter])
+                                        @include('users.admin.filters.filter_text', ['filter' => $filter])
                                     @elseif($filter->isSelectType())
-                                        @include('pages.admin.filters.filter_select', ['filter' => $filter])
+                                        @include('users.admin.filters.filter_select', ['filter' => $filter])
                                     @endif
                                 @endforeach
                             </div>

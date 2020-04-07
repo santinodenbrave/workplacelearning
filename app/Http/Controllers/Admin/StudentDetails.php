@@ -27,7 +27,7 @@ class StudentDetails extends Controller
             $this->handleUserLevel($request, $student);
         }
 
-        return view('pages.admin.student_details', [
+        return view('users.admin.student_details', [
             'student' => $student,
         ]);
     }

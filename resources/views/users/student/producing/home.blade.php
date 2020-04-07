@@ -30,7 +30,7 @@
 
                             <p class="text-right">
                                 <a class="alert-link" style="color: white;"
-                                   href="{{ route('analysis-hbo-ict-detail', ['year' => 'all', 'month' => 'all']) }}">{{ __('tips.see-more') }}</a>
+                                   href="{{ route('analysis-producing-detail', ['year' => 'all', 'month' => 'all']) }}">{{ __('tips.see-more') }}</a>
                             </p>
                         </div>
                     @endif

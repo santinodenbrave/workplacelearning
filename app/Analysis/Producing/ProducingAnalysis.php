@@ -7,7 +7,7 @@ namespace App\Analysis\Producing;
 use App\Chart;
 
 /**
- * Class ProducingAnalysis used for getting analysis info of a hbo-ict user's activities.
+ * Class ProducingAnalysis used for getting analysis info of a producing user's activities.
  */
 class ProducingAnalysis
 {

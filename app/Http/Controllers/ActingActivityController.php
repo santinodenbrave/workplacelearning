@@ -65,7 +65,7 @@ class ActingActivityController
 
         $orderedReflectionTypes = $student->orderReflectionTypes(ActivityReflection::TYPES);
 
-        return view('pages.acting.activity', $availableActingEntitiesFetcher->getEntities())
+        return view('users.student.acting.activity.index', $availableActingEntitiesFetcher->getEntities())
             ->with('activitiesJson', $activitiesJson)
             ->with('exportTranslatedFieldMapping', json_encode($exportTranslatedFieldMapping))
             ->with('workplacelearningperiod', $student->getCurrentWorkplaceLearningPeriod())
@@ -89,7 +89,7 @@ class ActingActivityController
 
         $orderedReflectionTypes = $student->orderReflectionTypes(ActivityReflection::TYPES);
 
-        return view('pages.acting.activity-edit', $availableActingEntitiesFetcher->getEntities())
+        return view('users.student.acting.activity.edit', $availableActingEntitiesFetcher->getEntities())
             ->with('activity', $learningActivityActing)
             ->with('orderedReflectionTypes', $orderedReflectionTypes)
             ->with('reflectionSettings', $student->reflectionSettings());
@@ -106,7 +106,7 @@ class ActingActivityController
 
         $exportTranslatedFieldMapping = $exportBuilder->getFieldLanguageMapping();
 
-        return view('pages.acting.progress')
+        return view('users.student.acting.progress')
             ->with('activitiesJson', $activitiesJson)
             ->with('exportTranslatedFieldMapping', json_encode($exportTranslatedFieldMapping));
     }

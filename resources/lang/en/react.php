@@ -64,7 +64,7 @@ return [
     'educprogram-manage' => 'Manage and create programs',
     'educprogram-add' => 'Add program',
     'acting' => 'Acting',
-    'hbo-ict' => 'Producing',
+    'producing' => 'Producing',
     'add' => 'Add',
     'none-selected' => 'None selected',
     'save' => 'Save',

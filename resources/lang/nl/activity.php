@@ -86,7 +86,7 @@ return [
             7 => 'Tenslotte kun je kiezen of je wilt reflecteren op dit leermoment. Dit kan met een korte reflectie, een gedetailleerde reflectie volgens een bekende reflectiemethode of allebei. Klik bij het tandwiel Reflectiemethoden om te selecteren welke je wilt gebruiken.',
         ],
     ],
-    'hbo-ict'               => [
+    'producing'               => [
         'person' => 'Persoon',
         'steps'  => [
             1 => 'Kies een datum waarop je de activiteit hebt uitgevoerd. Deze mag niet in de toekomst liggen.',

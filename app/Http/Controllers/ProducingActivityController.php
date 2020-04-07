@@ -60,7 +60,7 @@ class ProducingActivityController
 
         $exportTranslatedFieldMapping = $exportBuilder->getFieldLanguageMapping();
 
-        return view('pages.hbo-ict.activity', $availableProducingEntitiesFetcher->getEntities())
+        return view('users.student.producing.activity.index', $availableProducingEntitiesFetcher->getEntities())
             ->with('activitiesJson', $activitiesJson)
             ->with('exportTranslatedFieldMapping', json_encode($exportTranslatedFieldMapping))
             ->with('workplacelearningperiod', $student->getCurrentWorkplaceLearningPeriod());
@@ -72,13 +72,13 @@ class ProducingActivityController
         Request $request
     ) {
         $referrer = $request->header('referer');
-        $redirect = route('process-hbo-ict');
-        if ($referrer && $referrer === route('progress-hbo-ict')) {
-            $redirect = route('progress-hbo-ict');
+        $redirect = route('process-producing');
+        if ($referrer && $referrer === route('progress-producing')) {
+            $redirect = route('progress-producing');
         }
-        $this->session->put('hbo-ict.activity.edit.referrer', $redirect);
+        $this->session->put('producing.activity.edit.referrer', $redirect);
 
-        return view('pages.hbo-ict.activity-edit', $availableProducingEntitiesFetcher->getEntities())
+        return view('users.student.producing.activity.edit', $availableProducingEntitiesFetcher->getEntities())
             ->with('activity', $learningActivityProducing);
     }
 
@@ -93,7 +93,7 @@ class ProducingActivityController
         $earliest = $this->learningActivityProducingRepository->earliestActivityForStudent($student)->date ?? Carbon::now();
         $latest = $this->learningActivityProducingRepository->latestActivityForStudent($student)->date ?? Carbon::now();
 
-        return view('pages.hbo-ict.progress', [
+        return view('users.student.producing.progress', [
                 'activitiesJson'               => $activitiesJson,
                 'exportTranslatedFieldMapping' => json_encode($exportTranslatedFieldMapping),
                 'weekStatesDates'              => [
@@ -117,7 +117,7 @@ class ProducingActivityController
 
         if ($learningActivityProducing->feedback) {
             session()->flash('notification', __('notifications.feedback-hard'));
-            $url = route('feedback-hbo-ict', ['feedback' => $learningActivityProducing->feedback]);
+            $url = route('feedback-producing', ['feedback' => $learningActivityProducing->feedback]);
 
             if ($request->acceptsJson()) {
                 return response()->json([
@@ -130,7 +130,7 @@ class ProducingActivityController
         }
 
         session()->flash('success', __('activity.saved-successfully'));
-        $url = route('process-hbo-ict');
+        $url = route('process-producing');
 
         if ($request->acceptsJson()) {
             return response()->json([
@@ -150,9 +150,9 @@ class ProducingActivityController
         $LAPUpdater->update($learningActivityProducing, $request->all());
 
         session()->flash('success', __('activity.saved-successfully'));
-        $url = route('process-hbo-ict');
-        if ($this->session->has('hbo-ict.activity.edit.referrer')) {
-            $url = $this->session->remove('hbo-ict.activity.edit.referrer');
+        $url = route('process-producing');
+        if ($this->session->has('producing.activity.edit.referrer')) {
+            $url = $this->session->remove('producing.activity.edit.referrer');
         }
 
         if ($request->acceptsJson()) {
@@ -169,6 +169,6 @@ class ProducingActivityController
     {
         $this->learningActivityProducingRepository->delete($learningActivityProducing);
 
-        return redirect()->route('process-hbo-ict');
+        return redirect()->route('process-producing');
     }
 }

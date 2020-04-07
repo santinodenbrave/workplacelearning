@@ -44,25 +44,25 @@ class HomepageTest extends TestCase
 
     public function testHomeProducingWithoutActiveWplp(): void
     {
-        $user = $this->getUser('hbo-ict');
+        $user = $this->getUser('producing');
         $wplp = $user->getCurrentWorkplaceLearningPeriod();
         $user->usersettings()->where('setting_label', '=', 'active_internship')->delete();
         $this->assertDatabaseMissing('usersetting', ['student_id' => $user->student_id, 'setting_label' => 'active_internship']);
 
-        $this->actingAs($user)->get('/hbo-ict/home')->assertSuccessful();
+        $this->actingAs($user)->get('/producing/home')->assertSuccessful();
 
         $user->getUserSetting('active_internship', true);
         $user->setActiveWorkplaceLearningPeriod($wplp);
 
         $this->assertDatabaseHas('usersetting', ['student_id' => $user->student_id, 'setting_label' => 'active_internship']);
-        $this->actingAs($user)->get('/hbo-ict/home')->assertSuccessful();
+        $this->actingAs($user)->get('/producing/home')->assertSuccessful();
     }
 
     public function testHomeProducingWithActiveWplp(): void
     {
-        $user = $this->getUser('hbo-ict');
+        $user = $this->getUser('producing');
         $this->assertDatabaseHas('usersetting', ['student_id' => $user->student_id, 'setting_label' => 'active_internship']);
 
-        $this->actingAs($user)->get('/hbo-ict/home')->assertSuccessful();
+        $this->actingAs($user)->get('/producing/home')->assertSuccessful();
     }
 }

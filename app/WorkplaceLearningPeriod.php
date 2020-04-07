@@ -252,7 +252,7 @@ class WorkplaceLearningPeriod extends Model
     }
 
     /**
-     * Calculates the effective hours worked for hbo-ict activities.
+     * Calculates the effective hours worked for producing activities.
      */
     public function getEffectiveDays(): int
     {

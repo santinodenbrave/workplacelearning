@@ -28,6 +28,6 @@ class Dashboard extends Controller
                 return $workplaceLearningPeriod->student;
             })->unique('studentnr')->all();
 
-        return view('pages.teacher.dashboard')->with('students', $students);
+        return view('users.teacher.dashboard.index')->with('students', $students);
     }
 }

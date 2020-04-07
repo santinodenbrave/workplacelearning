@@ -74,7 +74,7 @@ class UpdateTeacherForWorkplaceLearningPeriodCSV extends Controller
             
                 }
 
-                return view('pages.admin.csv_details', [
+                return view('users.admin.csv_details', [
                 'pairs' => $pairs,
                 'notKnownStudents' => $notKnownStudents,
                 ]);

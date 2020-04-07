@@ -260,7 +260,7 @@
                         <h3>{{__('reflection.reflection')}}</h3>
                     </div>
                     <div class="col-md-8 text-right">
-                        @include('pages.acting.includes.reflection-settings')
+                        @include('users.student.acting.includes.reflection-settings')
                     </div>
                 </div>
 
@@ -304,7 +304,7 @@
                     </div>
 
 
-                    @include('pages.acting.includes.create-reflection')
+                    @include('users.student.acting.includes.create-reflection')
 
 
                 </div>

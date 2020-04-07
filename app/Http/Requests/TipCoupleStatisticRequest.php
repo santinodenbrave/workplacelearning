@@ -42,7 +42,7 @@ declare(strict_types=1);
 //    {
 //        $methodName = Str::after($predefinedString, 'predefined-');
 //
-//        // Get all predefined statistics (hbo-ict, acting..)
+//        // Get all predefined statistics (producing, acting..)
 //        $predefinedStatisticAnnotation = collect(PredefinedStatisticHelper::getData())
 //            ->first(function ($predefinedStatistic) use ($methodName) {
 //                return $methodName === $predefinedStatistic['method'];

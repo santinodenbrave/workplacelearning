@@ -57,7 +57,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('pages.hbo-ict.home', [
+        return view('users.student.producing.home', [
             'evaluatedTip' => $evaluatedTip ?? null,
             'itemExists' => $itemExists ?? false
         ]);
@@ -80,7 +80,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('pages.acting.home', [
+        return view('users.student.acting.home', [
             'evaluatedTip' => $evaluatedTip ?? null,
             'itemExists' => $itemExists ?? false
         ]);
@@ -88,12 +88,12 @@ class HomeController extends Controller
 
     public function showAdminTemplate()
     {
-        return view('pages.admin.home');
+        return view('users.admin.home');
     }
 
     public function showTeacherTemplate()
     {
-        return view('pages.teacher.home');
+        return view('users.teacher.home');
     }
 
     public function showDefault(): \Illuminate\Http\RedirectResponse

@@ -54,7 +54,7 @@ class Linking extends Controller
             return $user->isTeacher();
         })->values()->all();
 
-        return view('pages.admin.link-teacher-student', [
+        return view('users.admin.link-teacher-student', [
             'students'                 => $students,
             'teachers'                 => $teachers,
             'workplaceLearningPeriods' => $workplaceLearningPeriods,

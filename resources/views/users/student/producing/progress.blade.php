@@ -18,7 +18,7 @@
                 <h3>{{ __('general.weekstates') }}</h3>
                 <div id="ProducingWeekStatesExport" class="__reactRoot" data-latest="{{ $weekStatesDates['latest'] }}"
                      data-earliest="{{ $weekStatesDates['earliest'] }}"
-                     data-url="{{ route('report-hbo-ict-export') }}"></div>
+                     data-url="{{ route('report-producing-export') }}"></div>
             </div>
         </div>
         <div class="row" style="margin-top:50px;">

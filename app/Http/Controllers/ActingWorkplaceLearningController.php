@@ -48,7 +48,7 @@ class ActingWorkplaceLearningController
         $student = $this->currentUserResolver->getCurrentUser();
         $cohorts = $cohortRepository->cohortsAvailableForStudent($student);
 
-        return view('pages.acting.internship')
+        return view('users.student.acting.internship')
             ->with('period', new WorkplaceLearningPeriod())
             ->with('workplace', $workplace)
             ->with('cohorts', $cohorts);
@@ -68,7 +68,7 @@ class ActingWorkplaceLearningController
     {
         $workplace = $workplaceLearningPeriod->workplace;
 
-        return view('pages.acting.internship', [
+        return view('users.student.acting.internship', [
             'period'        => $workplaceLearningPeriod,
             'workplace'     => $workplace,
             'learninggoals' => $workplaceLearningPeriod->learningGoals,

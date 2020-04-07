@@ -184,7 +184,7 @@
                         <h3>{{__('reflection.reflection')}}</h3>
                     </div>
                     <div class="col-md-2 col-md-offset-6 text-right ">
-                        @include('pages.acting.includes.reflection-settings')
+                        @include('users.student.acting.includes.reflection-settings')
                     </div>
                 </div>
 
@@ -232,9 +232,9 @@
 
 
                     @if($activity->reflection)
-                        @include('pages.acting.includes.edit-reflection', ['reflection' => $activity->reflection, 'reflectionSettings' => $reflectionSettings])
+                        @include('users.student.acting.includes.edit-reflection', ['reflection' => $activity->reflection, 'reflectionSettings' => $reflectionSettings])
                     @else
-                        @include('pages.acting.includes.create-reflection')
+                        @include('users.student.acting.includes.create-reflection')
                     @endif
 
                 </div>

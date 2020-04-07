@@ -76,7 +76,7 @@ return [
     'none'                    => 'None',
     'other'                   => 'Other',
     'person'                  => 'Person',
-    'hbo-ict'               => [
+    'producing'               => [
         'person' => 'Person',
         'steps'  => [
             1 => 'Pick the date on which you performed the activity. It cannot be in the future.',
