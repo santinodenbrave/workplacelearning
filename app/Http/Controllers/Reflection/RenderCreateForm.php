@@ -26,6 +26,6 @@ class RenderCreateForm
         $typeInstance = new $className();
         $fields = $typeInstance->getFields();
 
-        return view('users.student.acting.reflection-form', ['fields' => $fields, 'type' => $type]);
+        return view('users.student.acting.reflection.reflection-form', ['fields' => $fields, 'type' => $type]);
     }
 }

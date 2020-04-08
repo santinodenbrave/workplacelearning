@@ -24,7 +24,7 @@ class TemplateDashboardController extends Controller
     {
         $templates = Template::all();
 
-        return view('pages.analytics.template.dashboard', compact('templates'));
+        return view('analytics.template.dashboard', compact('templates'));
     }
 
     public function create()
@@ -60,7 +60,7 @@ class TemplateDashboardController extends Controller
             $columnNames[$table] = DB::connection('dashboard')->getSchemaBuilder()->getColumnListing($table);
         }
 
-        return view('pages.analytics.template.create', compact('paramTypes', 'typeNames', 'template', 'parameters',
+        return view('analytics.template.create', compact('paramTypes', 'typeNames', 'template', 'parameters',
             'tableNames', 'columnNames'));
     }
 

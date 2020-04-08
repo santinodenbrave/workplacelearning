@@ -45,7 +45,7 @@ $isCustomActivityDuration = !in_array($activity->duration, [0.25, 0.50, 0.75, 1.
                     @endforeach
 
                 </select>
-                @include('users.student.producing.chain-partial')
+                @include('users.student.producing.activity.partials.chain-partial')
 
             </div>
 

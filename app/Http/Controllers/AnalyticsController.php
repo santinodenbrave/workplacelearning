@@ -30,7 +30,7 @@ class AnalyticsController extends Controller
     {
         $analyses = $this->analysis->all();
 
-        return view('pages.analytics.index', compact('analyses'));
+        return view('analytics.index', compact('analyses'));
     }
 
     /**
@@ -38,7 +38,7 @@ class AnalyticsController extends Controller
      */
     public function create()
     {
-        return view('pages.analytics.create');
+        return view('analytics.create');
     }
 
     /**
@@ -73,7 +73,7 @@ class AnalyticsController extends Controller
         }
         $analysis_result = \Cache::get(Analysis::CACHE_KEY.$analysis->id);
 
-        return view('pages.analytics.show', compact('analysis', 'analysis_result'));
+        return view('analytics.show', compact('analysis', 'analysis_result'));
     }
 
     public function export($id)
@@ -96,7 +96,7 @@ class AnalyticsController extends Controller
          */
 //        $d = Excel::create('Analyse data', function ($excel) use ($data): void {
 //            $excel->sheet('New sheet', function ($sheet) use ($data): void {
-//                $sheet->loadView('pages.analytics.export', compact('data'));
+//                $sheet->loadView('analytics.export', compact('data'));
 //            });
 //        });
 
@@ -144,7 +144,7 @@ class AnalyticsController extends Controller
         }
         $analysis_result = \Cache::get(Analysis::CACHE_KEY.$analysis->id);
 
-        return view('pages.analytics.edit', compact('analysis', 'analysis_result'));
+        return view('analytics.edit', compact('analysis', 'analysis_result'));
     }
 
     /**
