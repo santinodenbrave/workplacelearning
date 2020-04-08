@@ -52,14 +52,14 @@ class AnalyticsDashboardController extends Controller
             ->orderBy('position', 'asc')
             ->get();
 
-        return view('pages.analytics.dashboard.index', compact('charts', 'labels'));
+        return view('analytics.dashboard.index', compact('charts', 'labels'));
     }
 
     public function add()
     {
         $analyses = $this->analysis->has('charts')->get();
 
-        return view('pages.analytics.dashboard.create', compact('analyses'));
+        return view('analytics.dashboard.create', compact('analyses'));
     }
 
     /**

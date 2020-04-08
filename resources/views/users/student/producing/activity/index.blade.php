@@ -115,7 +115,7 @@ use App\ResourcePerson;
 
                 </select>
 
-                @include('users.student.producing.chain-partial')
+                @include('users.student.producing.activity.partials.chain-partial')
             </div>
             <div class="col-md-3">
                 <div class="buttons numpad">

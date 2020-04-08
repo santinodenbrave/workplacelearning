@@ -24,7 +24,7 @@ class QueryBuilderController extends Controller
             $request->session()->put('builder', []);
             $data = [];
 
-            return view('pages.analytics.builder.step1-type', compact('data'));
+            return view('analytics.builder.step1-type', compact('data'));
         }
 
         $data = $request->session()->get('builder');
@@ -35,21 +35,21 @@ class QueryBuilderController extends Controller
 
         if ($data['analysis_type'] === 'build') {
             switch ($id) {
-                case 1: return view('pages.analytics.builder.step1-type', compact('data')); break;
+                case 1: return view('analytics.builder.step1-type', compact('data')); break;
                 case 2: return $this->step2($data); break;
                 case 3: return $this->step3($data); break;
                 case 4: return $this->step4($data); break;
             }
         } elseif ($data['analysis_type'] === 'template') {
             switch ($id) {
-                case 1: return view('pages.analytics.builder.step1-type', compact('data')); break;
+                case 1: return view('analytics.builder.step1-type', compact('data')); break;
                 case 2: return $this->step2template($data); break;
                 case 4: return $this->step4($data); break;
             }
         } elseif ($data['analysis_type'] === 'custom') {
             switch ($id) {
-                case 1: return view('pages.analytics.builder.step1-type', compact('data')); break;
-                case 2: return view('pages.analytics.builder.step2-custom', compact('data')); break;
+                case 1: return view('analytics.builder.step1-type', compact('data')); break;
+                case 2: return view('analytics.builder.step2-custom', compact('data')); break;
                 case 4: return $this->step4($data); break;
             }
         }
@@ -152,7 +152,7 @@ class QueryBuilderController extends Controller
 
         $relations = $model->getRelations($data['analysis_entity'] ?? $models[0]);
 
-        return view('pages.analytics.builder.step2-builder', compact('models', 'relations', 'data'));
+        return view('analytics.builder.step2-builder', compact('models', 'relations', 'data'));
     }
 
     private function step2template($data)
@@ -183,7 +183,7 @@ class QueryBuilderController extends Controller
             $columnNames[$table] = DB::connection('dashboard')->getSchemaBuilder()->getColumnListing($table);
         }
 
-        return view('pages.analytics.builder.step2-template', compact('data', 'templates', 'columnNames'));
+        return view('analytics.builder.step2-template', compact('data', 'templates', 'columnNames'));
     }
 
     private function step3($data)
@@ -206,7 +206,7 @@ class QueryBuilderController extends Controller
             }
         }
 
-        return view('pages.analytics.builder.step3-builder-filters',
+        return view('analytics.builder.step3-builder-filters',
             compact('data', 'relations', 'columns', 'selectedModels'));
     }
 
@@ -223,7 +223,7 @@ class QueryBuilderController extends Controller
 
         $chartTypes = (new ChartType())->whereNotNull('slug')->get();
 
-        return view('pages.analytics.builder.step4-chart', compact('data', 'labels', 'chartTypes'));
+        return view('analytics.builder.step4-chart', compact('data', 'labels', 'chartTypes'));
     }
 
     private function step5($data): bool
@@ -400,7 +400,7 @@ class QueryBuilderController extends Controller
 
         $title = $request->input('name');
 
-        return view('pages.analytics.builder.step4-getchart', compact('slug', 'x_label', 'y_label', 'result', 'title'));
+        return view('analytics.builder.step4-getchart', compact('slug', 'x_label', 'y_label', 'result', 'title'));
     }
 
     public function getColumnValues($table, $column): array

@@ -66,7 +66,7 @@ Route::middleware(['auth', 'verified'])->group(static function (): void {
                 $label = str_replace('_', ' ', $label);
                 $idLabel = $id.';'.$label;
 
-                return View::make('pages.analytics.dashboard.chart_details', compact('label', 'idLabel'));
+                return View::make('analytics.dashboard.chart_details', compact('label', 'idLabel'));
             });
 
             Route::group(['prefix' => 'api'], function (): void {

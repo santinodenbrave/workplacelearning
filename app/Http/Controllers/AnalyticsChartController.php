@@ -35,7 +35,7 @@ class AnalyticsChartController extends Controller
     {
         $analyses = $this->analysis->has('charts')->get();
 
-        return view('pages.charts.index', compact('analyses'));
+        return view('analytics.charts.index', compact('analyses'));
     }
 
     /**
@@ -46,7 +46,7 @@ class AnalyticsChartController extends Controller
         $analyses = $this->analysis->all();
         $types = $this->chartType->all();
 
-        return view('pages.charts.create', compact('analyses', 'types'));
+        return view('analytics.charts.create', compact('analyses', 'types'));
     }
 
     /**
@@ -63,7 +63,7 @@ class AnalyticsChartController extends Controller
         $type = $this->chartType->findOrFail($data['type_id']);
         $name = $data['name'];
 
-        return view('pages.charts.create_step_2', compact('type', 'analysis', 'name'));
+        return view('analytics.charts.create_step_2', compact('type', 'analysis', 'name'));
     }
 
     /**
@@ -112,7 +112,7 @@ class AnalyticsChartController extends Controller
         $chart = $this->chart->findOrFail($id);
         $chart->load('analysis', 'type', 'labels');
 
-        return view('pages.charts.show', compact('chart'));
+        return view('analytics.charts.show', compact('chart'));
     }
 
     /**
