@@ -14,46 +14,6 @@ use App\ResourcePerson;
 @stop
 @section('content')
     <div class="container-fluid">
-        <script>
-            $(document).ready(function () {
-
-                $("#rp_id").on('change', function () {
-                    if ($(this).val() === "new" && $(this).is(":visible")) {
-                        $("#cond-select-hidden").show();
-                    } else {
-                        $("#cond-select-hidden").hide();
-                    }
-                });
-                $(".expand-click").click(resourcePersonUIUpdate);
-                $("#hours_custom").click(function () {
-                    $('#custom_hours_container').show();
-                });
-                $("#help-click").click(function () {
-                    $('#help-text').slideToggle('slow');
-                });
-                $(".cond-hidden").hide();
-                $("#cond-select-hidden").hide();
-                $("#category").hide();
-                $("#help-text").hide();
-                // $(".expand-click :input[value='persoon']").click();
-                $("#newcat").click(function () {
-                    $("#category").show();
-                });
-
-                $('[data-toggle="tooltip"]').tooltip();
-
-
-                function resourcePersonUIUpdate() {
-                    $(".cond-hidden").hide();
-                    $(this).siblings().show();
-                    $("#cond-select-hidden").hide();
-                    $("#rp_id").trigger("change");
-                }
-
-                // set current state
-                resourcePersonUIUpdate();
-            });
-        </script>
         <div class="row">
             <div class="col-md-12">
                 <h4 id="help-click" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u"><i
@@ -338,37 +298,9 @@ use App\ResourcePerson;
         <div id="ActivityProducingProcessTable" class="__reactRoot col-md-12"></div>
     </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('input[name="aantaluren"]').click(function () {
-                if ($(this).attr('id') !== 'hours_custom') {
-                    $('input[name="aantaluren_custom"]').val('60');
-                    $('#custom_hours_container').hide();
-                }
-            });
 
-            $('#date-deadline').datetimepicker({
-                locale: 'nl',
-                format: 'DD-MM-YYYY',
-                minDate: "{{ $workplacelearningperiod->startdate }}",
-                maxDate: "{{ date('Y-m-d', strtotime("now")) }}",
-                useCurrent: false,
-            });
+    <script type="text/javascript">var startDate="<?= $workplacelearningperiod->startdate ?>";</script>
+    <script src="{{ asset('js/blades-js/users/student/producing/activity/activity.js') }}"></script>
 
-            $('#hourDecrease').click(function () {
-                const newVal = Math.max(0, parseInt($('input[name="aantaluren_custom"]').val()) - 15);
-                $('input[name="aantaluren_custom"]').val(newVal);
-            });
-
-            $('#hourIncrease').click(function () {
-                const newVal = parseInt($('input[name="aantaluren_custom"]').val()) + 15;
-                $('input[name="aantaluren_custom"]').val(newVal);
-            });
-
-
-        }).on('dp.change', function (e) {
-            $('#datum').attr('value', moment(e.date).format("DD-MM-YYYY"));
-        });
-    </script>
     @include('js.activity_save')
 @stop

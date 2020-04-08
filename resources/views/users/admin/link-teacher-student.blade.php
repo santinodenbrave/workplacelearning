@@ -185,15 +185,12 @@
 
 @include('js.linking')
 <script>
-
-
     /** @var {array} */
     const workplacelearningperiods = {!! json_encode($workplaceLearningPeriods) !!};
     /** @var {array} */
     const students = {!! json_encode($students) !!}
     /** @var {array} */
     const teachers = {!! json_encode($teachers) !!};
-
 </script>
 
 

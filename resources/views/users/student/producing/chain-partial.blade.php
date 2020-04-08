@@ -220,8 +220,6 @@
             });
         });
 
-
-
         // Save rename
         $('body').on('click', '#chainUpdateSaveButton', function () {
             const id = $(this).data('id');

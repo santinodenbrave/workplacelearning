@@ -9,31 +9,6 @@
 @stop
 @section('content')
     <div class="container-fluid">
-        <script>
-            $(document).ready(function () {
-                // Tooltips
-                $('[data-toggle="tooltip"]').tooltip();
-
-
-                $('.dateinput').datetimepicker({
-                    locale: 'nl',
-                    format: 'DD-MM-YYYY',
-                    minDate: "{{ $activity->workplacelearningperiod->startdate }}",
-                    maxDate: "{{ date('Y-m-d') }}",
-                    useCurrent: false,
-                });
-
-                // Allow multi select to be used more easily
-                $('select[multiple] option').mousedown(function (e) {
-                    e.preventDefault();
-                    $(this).prop('selected', !this.selected);
-                    return false;
-                }).mousemove(function (e) {
-                    e.preventDefault()
-                });
-            });
-        </script>
-
         {{ Form::open(array('id' => 'taskForm', 'url' => route('process-acting-update', [$activity->laa_id]), 'files' => true)) }}
         <div id="taskFormError" class="alert alert-error" style="display: none">
 
@@ -290,42 +265,29 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <script>
-        var fileList = document.getElementById('fileList');
+        $(document).ready(function () {
+            // Tooltips
+            $('[data-toggle="tooltip"]').tooltip();
 
-        function updateFileList(fileInput) {
-            var files = [];
-            for (var i = 0; i < fileInput.files.length; i++) {
-                files.push(fileInput.files[i].name);
-            }
-            fileList.innerHTML = '';
-            files.forEach(function (fileName) {
-                var node = document.createElement('li');
-                node.innerText = fileName;
-                fileList.appendChild(node);
+
+            $('.dateinput').datetimepicker({
+                locale: 'nl',
+                format: 'DD-MM-YYYY',
+                minDate: "{{ $activity->workplacelearningperiod->startdate }}",
+                maxDate: "{{ date('Y-m-d') }}",
+                useCurrent: false,
             });
 
-        }
-
-        var enlargedModal = $('#enlargedModal');
-        var title = $('.modal-title');
-        var textarea = $(enlargedModal).find('textarea');
-        var returnTarget = undefined;
-        $('.canBeEnlarged').click(function () {
-            $(enlargedModal).modal('toggle');
-            var returnTargetId = $(this).data('target-text');
-
-            returnTarget = $(this).parent().find('' + returnTargetId);
-            $(textarea).attr('maxlength', $(returnTarget).attr('maxlength'));
-            $(textarea).val($(returnTarget).val());
-            $(title).text($(this).data('target-title'));
-            $(textarea).focus();
-        });
-        $('#enlargedTextareaSave').click(function () {
-            if (returnTarget === undefined) return;
-
-            $(returnTarget).val($(textarea).val());
-            $(enlargedModal).modal('hide')
+            // Allow multi select to be used more easily
+            $('select[multiple] option').mousedown(function (e) {
+                e.preventDefault();
+                $(this).prop('selected', !this.selected);
+                return false;
+            }).mousemove(function (e) {
+                e.preventDefault()
+            });
         });
     </script>
+    <script src="{{ asset('js/blades-js/users/student/acting/activity/activity-edit.js') }}"></script>
 
 @stop

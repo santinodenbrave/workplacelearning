@@ -8,27 +8,8 @@
     Analyse
 @stop
 @section('content')
-    <script>
-        let lastColorIndex = 0;
-
-        function getChartColor() {
-            const colors = [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-            ];
-            if (lastColorIndex === colors.length) {
-                lastColorIndex = 0;
-            }
-            return colors[lastColorIndex++];
-        }
-    </script>
-
+    <script src="{{ asset('js/blades-js/users/student/acting/analysis/detail.js') }}"></script>
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-lg-12">
                 <a href="{{ route('analysis-acting-choice') }}" class="btn">{{__('analyses.back-to-choice')}}</a>
@@ -38,8 +19,6 @@
                 <p>{{ __('general.tip_request') }}
                     <a href="{{ route('bugreport') }}">{{ __('general.this_page') }}</a>.</p>
                 <h1>{{ __('tips.personal-tip') }}s</h1>
-
-
 
                 @if(count($evaluatedTips) > 0)
                     <?php $tipCounter = 1; ?>

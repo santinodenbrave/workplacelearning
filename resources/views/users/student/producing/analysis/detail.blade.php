@@ -7,35 +7,8 @@
     {{ __('analysis.detail') }}
 @stop
 @section('content')
-    <script>
-        let lastColorIndex = 0;
-
-        function getChartColor() {
-            const colors = [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-            ];
-            if (lastColorIndex === colors.length) {
-                lastColorIndex = 0;
-            }
-            return colors[lastColorIndex++];
-        }
-    </script>
-
+    <script src="{{ asset('js/blades-js/users/student/producing/analysis/detail.js') }}"></script>
     <div class="container-fluid">
-        <script>
-            $(document).ready(function () {
-                $(".expand-detail").click(function (e) {
-                    $("#detail-" + ($(this).attr("data-id"))).toggle();
-                    e.preventDefault();
-                });
-            });
-        </script>
-
         @if(Auth::user()->getCurrentWorkplaceLearningPeriod() != null && Auth::user()->getCurrentWorkplaceLearningPeriod()->hasLoggedHours())
 
             <div class="row">
@@ -191,5 +164,4 @@
             });
         }
     </script>
-
 @stop

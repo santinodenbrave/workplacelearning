@@ -245,18 +245,5 @@
             </div>
         @endif
     </div>
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.dateInput').datetimepicker({
-                locale: 'nl',
-                format: 'DD-MM-YYYY',
-                minDate: "{{ date('Y-m-d', strtotime('-6 months')) }}",
-                useCurrent: true,
-            });
-        }).on('dp.change', function (e) {
-            $(e).attr('value', moment(e.date).format("DD-MM-YYYY"));
-        });
-    </script>
+    <script src="{{ asset('js/blades-js/users/student/acting/internship.js') }}"></script>
 @stop

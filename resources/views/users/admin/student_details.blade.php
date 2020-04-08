@@ -11,16 +11,12 @@
         <a href="{{ route('admin-dashboard') }}">
             Back to admin dashboard
         </a>
-
         <br/><br/>
         <div class="row">
             <!-- Profile Info -->
             <div class="col-md-4">
-
-
                 @card
                 <h4>Details</h4>
-
                 <div>
                     <p>
                         <strong>Database ID:</strong><br/>
@@ -29,7 +25,6 @@
                     <p>
                         <strong>Student number:</strong><br/>
                         {{ $student->studentnr }}
-
                     </p>
                     <p>
                         <strong>Name: </strong><br/>
@@ -67,14 +62,9 @@
                             <span class="label label-info">Normal registration</span>
                         @endif
                     </p>
-
-
                     <hr/>
-
                     <h4>Actions</h4>
-
                     {{ Form::open() }}
-
                     <div class="form-group">
                         <label for="user_level">User level</label>
                         <br/>
@@ -83,18 +73,11 @@
                             <option value="teacher" @if($student->userlevel === 1) selected @endif>Teacher</option>
                             <option value="admin" @if($student->userlevel === 2) selected @endif>Admin</option>
                         </select>
-
                         <br/>
-
                         <button class="btn btn-success">Apply user level</button>
-
                     </div>
-
                     {{ Form::close() }}
-
-
                     <hr/>
-
                     <p>
                         @if($student->student_id !== Auth::user()->student_id)
                             <a class="student-delete-link"
@@ -105,8 +88,6 @@
                     </p>
                 </div>
                 @endcard
-
-
             </div>
 
             <div class="col-md-8">
@@ -159,7 +140,6 @@
                                                 <a href="{{ route('admin-student-edit-wplp', [$student, $wplp]) }}">
                                                     Edit
                                                 </a>
-
                                                 <a class="wplp-delete-link"
                                                    data-url="{{ route('admin-student-delete-wplp', [$student, $wplp]) }}">
                                                     Delete
@@ -170,38 +150,15 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
-
         </div>
-
-
     </div>
 @stop
 
-
-
 @section('scripts')
-    <script>
-
-        $('.wplp-delete-link').on('click', function () {
-            if (confirm('This action will delete the workplace learning period and all its related entities, such as activities and user-created entities bound to these activities.')) {
-                window.location.href = $(this).data('url');
-            }
-        });
-
-        $('.student-delete-link').on('click', function () {
-            if (confirm('This action will delete the student and all its related entities, such as workplaces, learning periods, activities and user-created entities bound to these.')) {
-                window.location.href = $(this).data('url');
-            }
-        });
-
-    </script>
-
+    <script src="{{ asset('js/blades-js/users/admin/student_details.js') }}"></script>
 @endsection
 
 
