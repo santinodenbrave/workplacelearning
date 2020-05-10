@@ -20,7 +20,7 @@
         <script>
             $(document).ready(function () {
                 @if($notFinishedOther)
-                        $('.cond-hidden[name="newnotfinished"]').show();
+                $('.cond-hidden[name="newnotfinished"]').show();
                 @endif
             });
         </script>
@@ -89,7 +89,6 @@
                     />
                     <span>{{ __('activity.feedback.lack-of-time') }}</span>
                 </label>
-
 
 
                 <label class="expand-click">
@@ -165,7 +164,6 @@
                           placeholder="{{ __('activity.feedback.initiative-explanation') }}" rows="8"
                           cols="40">{{ $feedback->initiative }}</textarea>
             </div>
-
         </div>
 
         <div class="row form-horizontal well" style="min-height: 350px;">

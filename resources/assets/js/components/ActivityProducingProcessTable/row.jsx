@@ -5,9 +5,7 @@ export default class Row extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
             visible: false
-
         }
     }
 
@@ -55,8 +53,6 @@ export default class Row extends React.Component {
             <td>
                 {activity.feedback !== null && activity.feedback.fb_id !== null && <a href={`/producing/feedback/${activity.feedback.fb_id}`}>Feedback</a>}
             </td>
-
         </tr>
     }
-
 }

@@ -132,7 +132,7 @@ class Competence extends Entity {
                                 {({getRootProps, getInputProps}) => (
                                     <div {...getRootProps({className: 'dropzone'})}>
                                         <input {...getInputProps({value: ''})} />
-                                         <span>
+                                        <span>
                                             {Lang.get('react.upload-instructions')}
                                         </span>
                                     </div>
@@ -144,7 +144,6 @@ class Competence extends Entity {
             </div>
         </div>;
     }
-
 }
 
 class Timeslot extends Entity {
@@ -178,7 +177,6 @@ class Timeslot extends Entity {
             </div>
         </div>;
     }
-
 }
 
 class ResourcePerson extends Entity {
@@ -212,7 +210,6 @@ class ResourcePerson extends Entity {
             </div>
         </div>;
     }
-
 }
 
 class Category extends Entity {
@@ -238,7 +235,6 @@ class Category extends Entity {
                                 />
                             </div>
                         })}
-
                         <EntityCreator onEntityCreated={this.onEntityCreated.bind(this)} type={"category"}
                                        cohortId={this.props.cohortId}/>
                     </div>
@@ -246,8 +242,6 @@ class Category extends Entity {
             </div>
         </div>;
     }
-
 }
-
 
 export {Competence, Timeslot, ResourcePerson, Category};

@@ -84,7 +84,6 @@
           disableOther($(this), $('#x_axis'))
         });
         var disableOther = function (me, other) {
-//          me.find('option').removeAttr('disabled')
           var items = other.find('option');
           items.removeAttr('disabled');
           items.eq([me.prop('selectedIndex')]).attr('disabled', 'disabled')

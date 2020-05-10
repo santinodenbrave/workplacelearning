@@ -64,10 +64,7 @@ class MomentItem extends React.Component {
                                 <span className="input-group-addon">%</span>
                             </div>
                         </div>
-
                     </div>}
-
-
                 </div>
                 <br/>
 

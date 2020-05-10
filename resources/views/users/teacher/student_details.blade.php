@@ -11,7 +11,6 @@ use App\Student;use App\Workplace;
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> {{ __('errors.returnhome') }}
     </a>
     <br /><br />
-
     <div class="row">
         <!-- Profile Info -->
         <div class="col-md-8">
@@ -30,7 +29,6 @@ use App\Student;use App\Workplace;
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- Stage Info -->
@@ -54,10 +52,7 @@ use App\Student;use App\Workplace;
                 </div>
             </div>
         </div>
-
     </div>
-
     <hr>
-
 </div>
 @stop

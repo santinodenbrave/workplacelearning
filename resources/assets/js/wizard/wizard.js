@@ -1,5 +1,4 @@
 var Wizard = {
-
     step: function (id) {
         var request = $.ajax({
             type: "POST",
@@ -37,11 +36,9 @@ var Wizard = {
 
                             window.location.reload();
                         }
-
                     });
                 }
             }
-
         });
     },
 
@@ -118,7 +115,6 @@ var Wizard = {
             Wizard.resetListeners();
             $('.query-filter-container .row:last-child .query-data-table').change();
         });
-
     },
 
     step_4: function () {

@@ -17,7 +17,6 @@ class CreateForm extends React.Component {
         };
     }
 
-
     operatorIndex(operatorToFind) {
         return this.props.operators.findIndex(operator => operator.type === operatorToFind.type);
     }
@@ -135,27 +134,24 @@ class CreateForm extends React.Component {
 
                     <h4>{Lang.get('react.statistic.select-variable-one')} filters</h4>
 
+                    {
+                        this.state.statisticVariableOneFilters.map((filter, filterIndex) => {
 
-                        {
-                            this.state.statisticVariableOneFilters.map((filter, filterIndex) => {
-
-                                return <div key={filter.name}>
-                                    <strong>{Lang.get('statistics.filters.' + filter.name)}</strong>
-                                    {
-                                        filter.parameters.map((parameter, parameterIndex) => {
-                                            return <div key={parameter.name}>
-                                                <input value={parameter.value || ''}
-                                                       placeholder={parameter.name}
-                                                       onChange={e => this.updateFilter('one', filterIndex, parameterIndex, e.target.value)}
-                                                       type="text" className="form-control" maxLength={255}/>
-                                            </div>;
-                                        })
-                                    }
-                                </div>;
-                            })
-                        }
-
-
+                            return <div key={filter.name}>
+                                <strong>{Lang.get('statistics.filters.' + filter.name)}</strong>
+                                {
+                                    filter.parameters.map((parameter, parameterIndex) => {
+                                        return <div key={parameter.name}>
+                                            <input value={parameter.value || ''}
+                                                   placeholder={parameter.name}
+                                                   onChange={e => this.updateFilter('one', filterIndex, parameterIndex, e.target.value)}
+                                                   type="text" className="form-control" maxLength={255}/>
+                                        </div>;
+                                    })
+                                }
+                            </div>;
+                        })
+                    }
                 </div>
 
                 <div className="col-md-4" id="step-9">
@@ -192,8 +188,6 @@ class CreateForm extends React.Component {
                                     })
                                 }
                             </div>;
-
-
                         })
                     }
                 </div>

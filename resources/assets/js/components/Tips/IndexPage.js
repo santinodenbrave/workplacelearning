@@ -59,8 +59,10 @@ class IndexPage extends React.Component {
                 <div className="panel-body">
                     <p style={{padding: '20px'}}>{Lang.get('tips.delete-confirm')}</p>
 
-                    <button onClick={this.deleteTip} className="btn btn-danger">{Lang.get('react.delete')}</button>&nbsp;
-                    <button onClick={() => this.setState({showTipDeleteModal: false, deleteTipId: null})} className="btn btn-default">{Lang.get('react.cancel')}</button>
+                    <button onClick={this.deleteTip} className="btn btn-danger">{Lang.get('react.delete')}</button>
+                    &nbsp;
+                    <button onClick={() => this.setState({showTipDeleteModal: false, deleteTipId: null})}
+                            className="btn btn-default">{Lang.get('react.cancel')}</button>
 
                 </div>
             </Modal>
@@ -71,16 +73,20 @@ class IndexPage extends React.Component {
                 <div className="panel-body">
                     <p style={{padding: '20px'}}>{Lang.get('statistics.delete-confirm')}</p>
 
-                    <button onClick={this.deleteStatistic} className="btn btn-danger">{Lang.get('react.delete')}</button>&nbsp;
-                    <button onClick={() => this.setState({showStatisticDeleteModal: false, deleteStatisticId: null})} className="btn btn-default">{Lang.get('react.cancel')}</button>
+                    <button onClick={this.deleteStatistic}
+                            className="btn btn-danger">{Lang.get('react.delete')}</button>
+                    &nbsp;
+                    <button onClick={() => this.setState({showStatisticDeleteModal: false, deleteStatisticId: null})}
+                            className="btn btn-default">{Lang.get('react.cancel')}</button>
 
                 </div>
             </Modal>
             <h1>Tips & statistieken</h1>
 
             <ul className="nav nav-tabs" role="tablist">
-                <li className={this.props.currentPage === 'tips' ? 'active' : ''}><a onClick={e => this.props.setCurrentPage('tips')}
-                                                                              style={{textTransform: 'capitalize'}}>{Lang.get('tips.tips')}</a>
+                <li className={this.props.currentPage === 'tips' ? 'active' : ''}><a
+                    onClick={e => this.props.setCurrentPage('tips')}
+                    style={{textTransform: 'capitalize'}}>{Lang.get('tips.tips')}</a>
                 </li>
                 <li className={this.props.currentPage === 'statistics' ? 'active' : ''}><a
                     onClick={e => this.props.setCurrentPage('statistics')}
@@ -89,7 +95,6 @@ class IndexPage extends React.Component {
                     onClick={e => this.props.setCurrentPage('help')}
                     style={{textTransform: 'capitalize'}}>{Lang.get('tips.help.help')}</a></li>
             </ul>
-
 
             {
                 this.props.currentPage === 'tips' &&
@@ -102,7 +107,6 @@ class IndexPage extends React.Component {
                     <br/><br/>
 
                     <div className="row">
-
                         <div className="col-lg-6">
                             <label htmlFor='tipsFilter'>Filter</label>
                             <input type="text" id='tipsFilter' value={this.state.filterTips}
@@ -125,12 +129,12 @@ class IndexPage extends React.Component {
                         <tbody>
                         {Object.values(tips)
                             .filter(tip => tip.name.toLowerCase().includes(this.state.filterTips.toLowerCase()))
-                            .map(tip => <TipItemContainer onClickDelete={() => this.setState({showTipDeleteModal: true, deleteTipId: tip.id})} key={tip.id} tip={tip}/>)}
+                            .map(tip => <TipItemContainer
+                                onClickDelete={() => this.setState({showTipDeleteModal: true, deleteTipId: tip.id})}
+                                key={tip.id} tip={tip}/>)}
                         </tbody>
                     </table>
-
                 </div>
-
             }
 
             {
@@ -165,14 +169,20 @@ class IndexPage extends React.Component {
                         {Object.values(statistics)
                             .filter(statistic => statistic.name.toLowerCase().includes(this.state.filterStatistics.toLowerCase()))
                             .map(statistic => {
-                            // If an id contains p-p- or p-a- it is not a statistic of a tip but rather a statistic that can be chosen for coupling to a tip, thus skip
-                            // Also skip predefined statistics that have embodied a Statistic (they are but mere wrappers, no content)
-                            if (String(statistic.id).includes(['p-p-', 'p-a-']) || statistic.type === 'predefinedstatistic') return null;
-                            return <StatisticItemContainer key={statistic.id} statistic={statistic}
-                                                           onClickDelete={() => this.setState({showStatisticDeleteModal: true, deleteStatisticId: statistic.id})}
-                                                           onClickUpdate={() => this.setState({showUpdateStatisticModal: true, updateStatisticId: statistic.id})}
-                            />
-                        })}
+                                // If an id contains p-p- or p-a- it is not a statistic of a tip but rather a statistic that can be chosen for coupling to a tip, thus skip
+                                // Also skip predefined statistics that have embodied a Statistic (they are but mere wrappers, no content)
+                                if (String(statistic.id).includes(['p-p-', 'p-a-']) || statistic.type === 'predefinedstatistic') return null;
+                                return <StatisticItemContainer key={statistic.id} statistic={statistic}
+                                                               onClickDelete={() => this.setState({
+                                                                   showStatisticDeleteModal: true,
+                                                                   deleteStatisticId: statistic.id
+                                                               })}
+                                                               onClickUpdate={() => this.setState({
+                                                                   showUpdateStatisticModal: true,
+                                                                   updateStatisticId: statistic.id
+                                                               })}
+                                />
+                            })}
                         </tbody>
                     </table>
 
@@ -200,7 +210,6 @@ class IndexPage extends React.Component {
                     </Modal>
                 </div>
             }
-
             {
                 this.props.currentPage === 'help' && <div>
 
@@ -235,11 +244,11 @@ class IndexPage extends React.Component {
                     </p>
                 </div>
             }
-
             {
                 Object.keys(this.props.errors).length > 0 &&
                 <div style={{position: 'fixed', right: 10, bottom: 40}}>
-                        {Object.keys(this.props.errors).map(id => <div className='alert alert-error' key={id}>{this.props.errors[id]}</div>)}
+                    {Object.keys(this.props.errors).map(id => <div className='alert alert-error'
+                                                                   key={id}>{this.props.errors[id]}</div>)}
                 </div>
             }
         </div>
@@ -265,8 +274,6 @@ const mapping = {
 export default connect(mapping.state, mapping.dispatch)(IndexPage);
 
 
-
-
 const statisticItem = ({statistic, onClickDelete, onClickUpdate}) => {
     return <tr>
         <td>{statistic.name}</td>
@@ -286,9 +293,7 @@ const statisticItemMapping = {
         };
     },
     dispatch: (dispatch) => {
-        return {
-
-        };
+        return {};
     }
 };
 
@@ -306,7 +311,7 @@ const tipItem = ({tip, onClickDelete, coupledStatistics, statistics, toggleAvail
     return <tr>
         <td>{tip.name}</td>
         <td>
-            {tip.moments.length > 0 && Lang.get('tips.type-moment') }
+            {tip.moments.length > 0 && Lang.get('tips.type-moment')}
             {tip.moments.length > 0 && tip.coupled_statistics.length > 0 && ', '}
             {tip.coupled_statistics.length > 0 &&
             <span>{Lang.get('tips.type-statistic')} ({hasActingCoupled && 'acting'}{hasActingCoupled && hasProducingCoupled && ', '}{hasProducingCoupled && 'producing'})</span>}
@@ -321,7 +326,7 @@ const tipItem = ({tip, onClickDelete, coupledStatistics, statistics, toggleAvail
         </td>
         <td style={{cursor: 'pointer'}} onClick={toggleAvailability}>
             {tip.showInAnalysis === 1 && <span className="glyphicon glyphicon-ok" style={{color: 'green'}}/>}
-            {tip.showInAnalysis === 0 && <span className="glyphicon glyphicon-remove" style={{color:'red'}}/>}
+            {tip.showInAnalysis === 0 && <span className="glyphicon glyphicon-remove" style={{color: 'red'}}/>}
         </td>
         <td>
             <Link to={`/tip/${tip.id}`}>
@@ -364,6 +369,3 @@ const TipItemMapping = {
 };
 
 const TipItemContainer = connect(TipItemMapping.state, TipItemMapping.dispatch)(tipItem);
-
-
-

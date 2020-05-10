@@ -1,11 +1,8 @@
 <script>
-
     const form = document.getElementById('taskForm');
     const errorElement = document.getElementById('taskFormError');
 
     form.onsubmit = submitTaskForm;
-
-
 
     /**
      * Callback on form submit
@@ -16,11 +13,9 @@
         event.preventDefault();
 
         const data = new FormData(form);
-        console.log(data);
         const url = form.getAttribute('action');
 
         errorElement.style = 'display:none;';
-
 
         submit(data, url)
             .fail(function (error) {
@@ -36,15 +31,12 @@
                 }
             })
             .done(function (response) {
-                console.log(response);
-                if(response.status === 'success') {
-                    if(response.hasOwnProperty('url')) {
+                if (response.status === 'success') {
+                    if (response.hasOwnProperty('url')) {
                         window.location.href = response.url;
                     }
                 }
             });
-
-
         return false;
     }
 
@@ -54,10 +46,9 @@
      *
      */
     function handleFormErrors(error) {
-        console.log(error);
         const normalizedErrors = [];
-        Object.keys(error.responseJSON.errors).forEach(function(field) {
-            error.responseJSON.errors[field].forEach(function(errorEntry) {
+        Object.keys(error.responseJSON.errors).forEach(function (field) {
+            error.responseJSON.errors[field].forEach(function (errorEntry) {
                 normalizedErrors.push('<p>' + errorEntry + '</p>');
             })
         });
@@ -65,7 +56,6 @@
         errorElement.innerHTML = normalizedErrors.join(' ');
         errorElement.style = 'display:block;';
     }
-
 
     /**
      * Send AJAX request for form
@@ -78,14 +68,9 @@
             type: "POST",
             url: url,
             data: data,
-            // contentType: 'application/json'
             processData: false,
             contentType: false,
             dataType: 'json'
-
         })
     }
-
-
-
 </script>

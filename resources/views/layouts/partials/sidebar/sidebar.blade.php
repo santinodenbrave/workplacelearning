@@ -27,7 +27,6 @@
         <br/>
     @endif
 
-
     <div class="footer-tile">
 
         {{ __('general.found-bug') }} <a href="{{ route('bugreport') }}">{{ __('general.bug-tell-us') }}</a>
@@ -37,7 +36,3 @@
         <br/> Icons courtesy of <a href="http://famfamfam.com">FamFamFam.com</a>
     </div>
 </div>
-
-
-
-

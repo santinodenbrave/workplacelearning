@@ -86,9 +86,6 @@
 
                 </div>
             </div>
-
-
             <br /><a href="{{ '/bugreport' }}"><img src="{{ secure_asset('assets/img/bug_add.png') }}" width="16px" height="16px" /> {{ __('home.tips') }}</a>
-
         </div>
 @stop

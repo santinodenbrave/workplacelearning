@@ -100,7 +100,6 @@
                 $('#registerButton').prop('disabled', false);
             }
         }
-
         checkSelectedEducation();
     </script>
 @endsection

@@ -7,6 +7,7 @@
     {{ __('analysis.detail') }}
 @stop
 @section('content')
+    <script src="{{ asset('js/blades-js/users/student/getchartcolor.js') }}"></script>
     <script src="{{ asset('js/blades-js/users/student/producing/analysis/detail.js') }}"></script>
     <div class="container-fluid">
         @if(Auth::user()->getCurrentWorkplaceLearningPeriod() != null && Auth::user()->getCurrentWorkplaceLearningPeriod()->hasLoggedHours())
@@ -15,7 +16,6 @@
                 <div class="col-lg-6">
                     <a href="{{ route('analysis-producing-choice') }}" class="btn">{{__('analyses.back-to-choice')}}</a>
                     <h1>{{ __('tips.personal-tip') }}s</h1>
-
 
                     @if(count($evaluatedTips) > 0)
                         <?php $tipCounter = 1; ?>

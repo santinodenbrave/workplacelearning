@@ -27,6 +27,7 @@ $(document).ready(function () {
             $('#res_material_detail').fadeIn().focus();
         }
     });
+
     $('[name="timeslot"]').click(function () {
         if ($('#new_timeslot').is(':checked')) {
             $('#new-timeslot-hidden').fadeIn().focus();
@@ -61,6 +62,7 @@ $(document).ready(function () {
     $('#datum').attr('value', moment(e.date).format("DD-MM-YYYY"));
 });
 
+
 var fileList = document.getElementById('fileList');
 
 function updateFileList(fileInput) {
@@ -80,6 +82,7 @@ var enlargedModal = $('#enlargedModal');
 var title = $('.modal-title');
 var textarea = $(enlargedModal).find('textarea');
 var returnTarget = undefined;
+
 $('.canBeEnlarged').click(function () {
     $(enlargedModal).modal('toggle');
     var returnTargetId = $(this).data('target-text');
@@ -90,6 +93,7 @@ $('.canBeEnlarged').click(function () {
     $(title).text($(this).data('target-title'));
     $(textarea).focus();
 });
+
 $('#enlargedTextareaSave').click(function () {
     if (returnTarget === undefined) return;
 

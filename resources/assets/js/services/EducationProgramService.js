@@ -22,7 +22,9 @@ export default class EducationProgramService {
     static createEducationProgram(data, callback) {
         axios.post(base + 'education-program', data)
             .then(callback)
-            .catch(error => {console.log("Unable to create education program: " + error)});
+            .catch(error => {
+                console.log("Unable to create education program: " + error)
+            });
     }
 
     static deleteEducationProgram(id, callback) {
@@ -56,7 +58,7 @@ export default class EducationProgramService {
     }
 
     static updateEntity(id, data, callback) {
-        axios.put(base + 'education-program/entity/' + id , data).then(callback);
+        axios.put(base + 'education-program/entity/' + id, data).then(callback);
     }
 
     static updateName(id, data, callback) {
@@ -79,7 +81,7 @@ export default class EducationProgramService {
     static removeCompetenceDescription(cohortId, callback) {
         axios.get(base + 'education-program/cohort/' + cohortId + '/competence-description/remove')
             .then(callback)
-            .catch(error=> {
+            .catch(error => {
                 console.log("Unable to upload competence description: " + error);
             });
     }
@@ -87,7 +89,9 @@ export default class EducationProgramService {
     static toggleDisable(id, callback) {
         axios.get(base + 'education-program/' + id + '/disable')
             .then(callback)
-            .catch(error => {console.log("Unable to toggle disabled state of program: " + error)});
+            .catch(error => {
+                console.log("Unable to toggle disabled state of program: " + error)
+            });
     }
 
     static createCohort(programId, callback) {
@@ -114,7 +118,9 @@ export default class EducationProgramService {
     static toggleDisableCohort(id, callback) {
         axios.get(base + 'education-program/cohort/' + id + '/disable')
             .then(callback)
-            .catch(error => {console.log("Unable to toggle disabled state of cohort: " + error)});
+            .catch(error => {
+                console.log("Unable to toggle disabled state of cohort: " + error)
+            });
     }
 
     static cloneCohort(id, callback) {

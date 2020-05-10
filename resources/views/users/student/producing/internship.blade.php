@@ -18,7 +18,6 @@
         <div class="row">
             <!-- Current Internship -->
 
-
             {!! Form::open(array(
                 'url' => (($period->wplp_id === null) ? route('period-producing-create') : route('period-producing-update', ['id' => $period->wplp_id])),
                 'data-toggle' => 'validator'))
@@ -180,8 +179,6 @@
                                 @endforeach
                             </select>
                         </div>
-
-
                     </div>
                     <div class="form-group">
                         <div class="col-lg-3 col-lg-offset-9">
@@ -189,7 +186,6 @@
                                value="{{ __('elements.profile.btnsave') }}"/>
                         </div>
                     </div>
-
                 </div>
                 @endcard
             </div>
@@ -261,6 +257,5 @@
             </div>
         @endif
     </div>
-
     <script src="{{ asset('js/blades-js/users/student/producing/internship.js') }}"></script>
 @stop

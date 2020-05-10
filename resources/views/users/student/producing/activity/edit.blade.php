@@ -199,8 +199,8 @@ $isCustomActivityDuration = !in_array($activity->duration, [0.25, 0.50, 0.75, 1.
             <div class="col-md-3 ">
                 <div class="buttons">
                     <h4>{{ __('activity.difficulty') }} <i class="fa fa-info-circle" aria-hidden="true"
-                                                          data-toggle="tooltip" data-placement="bottom"
-                                                          title="{{ trans('tooltips.producing_difficulty') }}"></i>
+                                                           data-toggle="tooltip" data-placement="bottom"
+                                                           title="{{ trans('tooltips.producing_difficulty') }}"></i>
                     </h4>
                     <label><input type="radio" name="moeilijkheid"
                                   value="1" {{ ((int) old('moeilijkheid', $activity->difficulty_id) === 1) ? 'checked' : null }} /><span>{{ __('activity.easy') }}</span></label>
@@ -229,15 +229,10 @@ $isCustomActivityDuration = !in_array($activity->duration, [0.25, 0.50, 0.75, 1.
                 </div>
             </div>
         </div>
-
         @endcard
-
         {{ Form::close() }}
 
     </div>
-
     <script src="{{ asset('js/blades-js/users/student/producing/activity/activity-edit.js') }}"></script>
-
     @include('js.activity_save')
-
 @stop

@@ -1,13 +1,7 @@
 <canvas id="myChart"></canvas>
 
 <script>
-
-    //Chart.defaults.global.animation.onComplete = () => {
-    //console.log('finished');
-    //};
-
     (function () {
-
         var ctxh = $('#myChart');
         var myChart = new Chart(ctxh, {
             type: '{{ $slug }}', // ideally have the type itself make something nice out?

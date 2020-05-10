@@ -7,11 +7,9 @@ export default class ActingActivityProcessExporter {
         this.activities = activities;
 
         this.outputData = '';
-
     }
 
     csv() {
-
         // Build headers and filter unwanted
         let headers = Object.keys(this.activities[0]);
 
@@ -24,7 +22,6 @@ export default class ActingActivityProcessExporter {
             return exportTranslatedFieldMapping[header]
         });
         this.output(translatedHeaders.join(";") + "\n");
-
 
         this.activities.forEach((activity, index) => {
             let values = headers.map(header => {
@@ -41,7 +38,6 @@ export default class ActingActivityProcessExporter {
             }).map(this.escapeCsv);
             let dataString = values.join(";");
             this.output(index < this.activities.length ? dataString + "\n" : dataString);
-
         });
     }
 
@@ -58,7 +54,7 @@ export default class ActingActivityProcessExporter {
             let lines = headers.map(header => {
                 if (unwantedColumns.indexOf(header) !== -1) return;
                 if (header === 'situation' || header === 'lessonsLearned') {
-                    return _.capitalize(exportTranslatedFieldMapping[header]) + ": \n\t" +(activity[header] !== null ? activity[header] : '-') + " \n";
+                    return _.capitalize(exportTranslatedFieldMapping[header]) + ": \n\t" + (activity[header] !== null ? activity[header] : '-') + " \n";
                 } else if (header === 'competence') {
                     return _.capitalize(exportTranslatedFieldMapping[header]) + ": " + activity[header].join(', ')
                 } else if (header === 'evidence') {
@@ -98,5 +94,4 @@ export default class ActingActivityProcessExporter {
     escapeCsv(string) {
         return '"' + string.replace(/"/g, '""') + '"';
     }
-
 }

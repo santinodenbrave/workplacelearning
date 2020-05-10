@@ -17,6 +17,7 @@ var enlargedModal = $('#enlargedModal');
 var title = $('.modal-title');
 var textarea = $(enlargedModal).find('textarea');
 var returnTarget = undefined;
+
 $('.canBeEnlarged').click(function () {
     $(enlargedModal).modal('toggle');
     var returnTargetId = $(this).data('target-text');
@@ -27,6 +28,7 @@ $('.canBeEnlarged').click(function () {
     $(title).text($(this).data('target-title'));
     $(textarea).focus();
 });
+
 $('#enlargedTextareaSave').click(function () {
     if (returnTarget === undefined) return;
 

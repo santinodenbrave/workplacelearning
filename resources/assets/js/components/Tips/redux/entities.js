@@ -138,7 +138,6 @@ const reducer = (state = defaultState, action) => {
     return state;
 };
 
-
 export {
     types, actions, reducer
 }

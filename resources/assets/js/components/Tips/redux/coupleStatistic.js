@@ -5,8 +5,6 @@ const actions = {
     updateCoupleStatisticFormProperty: (property, value) => ({type: types.UPDATE_COUPLE_PROPERTY, property, value})
 };
 
-
-
 const defaultState = {
     statistic: '',
     comparisonOperator: 0,
@@ -19,11 +17,7 @@ const reducer = (state = defaultState, action) => {
 
         case types.UPDATE_COUPLE_PROPERTY:
             return {...state, [action.property]: action.value}
-
-
     }
-
-
     return state;
 };
 

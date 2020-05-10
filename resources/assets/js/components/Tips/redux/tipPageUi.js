@@ -12,7 +12,6 @@ const actions = {
     errorRemove: id => ({type: types.ERROR_REMOVE, id}),
 };
 
-
 const defaultState = {
     inEditMode: [],
     variableFilters: {acting: [], producing: []},
@@ -50,7 +49,6 @@ const reducer = (state = defaultState, action) => {
     }
     return state;
 };
-
 
 export {
     types, actions, reducer

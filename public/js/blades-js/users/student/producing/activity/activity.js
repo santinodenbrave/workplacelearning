@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $("#rp_id").on('change', function () {
         if ($(this).val() === "new" && $(this).is(":visible")) {
             $("#cond-select-hidden").show();
@@ -7,24 +6,27 @@ $(document).ready(function () {
             $("#cond-select-hidden").hide();
         }
     });
+
     $(".expand-click").click(resourcePersonUIUpdate);
+
     $("#hours_custom").click(function () {
         $('#custom_hours_container').show();
     });
+
     $("#help-click").click(function () {
         $('#help-text').slideToggle('slow');
     });
+
     $(".cond-hidden").hide();
     $("#cond-select-hidden").hide();
     $("#category").hide();
     $("#help-text").hide();
-    // $(".expand-click :input[value='persoon']").click();
+
     $("#newcat").click(function () {
         $("#category").show();
     });
 
     $('[data-toggle="tooltip"]').tooltip();
-
 
     function resourcePersonUIUpdate() {
         $(".cond-hidden").hide();

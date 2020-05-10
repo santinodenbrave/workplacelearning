@@ -12,7 +12,6 @@
             </div>
             <div class="main-login main-center">
 
-
                 <h3>{{ __('auth.verification.title') }}</h3>
 
                 <div>
@@ -23,20 +22,14 @@
                     @endif
 
                     {{ __('auth.verification.message') }}
-                        <br/>
+                    <br/>
                     {{ __('auth.verification.not-received') }}, <a
                             href="{{ route('verification.resend') }}">{{ __('auth.verification.again') }}</a>.
 
-
                     <br/><br/>
-
                     <a href="{{ action('Auth\LoginController@logout') }}">{{ __('elements.sidebar.labels.logout') }}</a>
                 </div>
-
-
             </div>
         </div>
     </div>
 @endsection
-
-

@@ -4,13 +4,9 @@
     Admin dashboard
 @stop
 @section('content')
-
     <div class="container-fluid">
-
         <h1>Admin dashboard</h1>
         <div class="row">
-
-
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -20,8 +16,8 @@
                             <strong>Filters</strong>
                             {{ Form::open(['method' => 'GET']) }}
 
-                            <input type="hidden" name="sort" value="{{ request('sort') }}" />
-                            <input type="hidden" name="direction" value="{{ request('direction') }}" />
+                            <input type="hidden" name="sort" value="{{ request('sort') }}"/>
+                            <input type="hidden" name="direction" value="{{ request('direction') }}"/>
                             <div class="row">
                                 <?php
                                 /** @var SearchFilter $filter */
@@ -37,15 +33,10 @@
                             </div>
                             <button class="btn btn-info">Filter</button>
                             {{Form::close()}}
-
                         </div>
-
                         <hr/>
-
-
                         <div class="table-responsive">
                             <table class="table table-striped">
-
                                 <thead>
                                 <tr>
                                     <th>@sortablelink('studentnr', 'Student number')</th>
@@ -58,7 +49,6 @@
                                     <th></th>
                                 </tr>
                                 </thead>
-
                                 <tbody>
                                 <?php
                                 use App\Repository\SearchFilter;use App\Student;
@@ -86,7 +76,6 @@
                                             <a href="{{route('admin-student-details', [$student])}}">
                                                 details
                                             </a>
-
                                         </td>
                                     </tr>
                                 @endforeach
@@ -97,11 +86,7 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-
     </div>
 
 @stop

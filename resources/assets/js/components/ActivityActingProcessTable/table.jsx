@@ -133,7 +133,6 @@ export default class ActivityActingProcessTable extends React.Component {
             })
     }
 
-
     exportHandler() {
         let ids = this.filterActivities(this.state.activities).map(activity => activity.id);
         const includeReflections = (this.state.exportReflections ? 1 : 0);
@@ -162,7 +161,6 @@ export default class ActivityActingProcessTable extends React.Component {
         }
     }
 
-
     isMini = () => this.mode === 'mini';
     isDetail = () => this.mode === 'detail';
 
@@ -172,7 +170,6 @@ export default class ActivityActingProcessTable extends React.Component {
             {this.isDetail() && this.renderFilter()}
 
             {this.isDetail() && this.renderExport()}
-
 
             {this.isMini() && <a href={window.progressLink}>{Lang.get('react.progress-link-label')}</a>}
             <div className="table-responsive">
@@ -331,5 +328,4 @@ export default class ActivityActingProcessTable extends React.Component {
             </div>
         </div>
     }
-
 }

@@ -49,13 +49,10 @@
                     </button>
                     <div id="query-result" style="margin-top: 15px"></div>
                 </div>
-
             </div>
-
         </div>
-
-
     </form>
+
     <script>
         let templates = JSON.parse('{!! json_encode($templates) !!}');
         let columnNames = JSON.parse('{!! json_encode($columnNames) !!}');
@@ -99,7 +96,6 @@
                     let paramType = param['type_name'].toString().toLowerCase();
                     let tableName = param['table'];
                     let columnName = param['column'];
-
                     let field = "";
 
                     if (paramType === 'column value') {
@@ -288,5 +284,4 @@
         <button type="button" class="btn btn-seconday" onclick="Wizard.step(1);">Vorige</button>
         <button type="button" class="btn btn-primary" onclick="nextStep()">Volgende</button>
     </div>
-
 </div>

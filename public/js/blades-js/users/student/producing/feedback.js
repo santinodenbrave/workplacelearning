@@ -13,6 +13,4 @@ $(document).ready(function () {
         $(this).siblings().show();
     });
     $("[name='support_requested']:checked").trigger("click");
-    //$(".expand-click > input").trigger("click");
-
 });

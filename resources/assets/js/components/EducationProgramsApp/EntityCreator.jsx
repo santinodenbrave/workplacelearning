@@ -57,10 +57,6 @@ export class EntityCreator extends React.Component {
                 <br/>
                 <span className="btn btn-success" onClick={this.onCreateEntityClick}>{Lang.get('react.add')}</span>
             </div>
-
-
-
         </div>
     }
-
 }

@@ -21,7 +21,6 @@
         </ul>
     </div>
 
-
     <div class="modal fade" id="reflectionModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -51,7 +50,6 @@
     </div>
 
 </div>
-
 
 <script>
     const reflectionUrl = '{{ route('render-reflection-type', ['type' => 'type-param']) }}';
@@ -133,6 +131,5 @@
             currentReflection.text('');
         }
     }
-
 
 </script>

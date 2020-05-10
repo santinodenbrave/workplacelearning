@@ -185,6 +185,4 @@ export default class EntityListEntry extends React.Component {
             )}
         </div>;
     }
-
-
 }

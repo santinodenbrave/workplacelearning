@@ -114,7 +114,6 @@
             coupleButton.removeAttribute('disabled')
         }
 
-
         //Clear dropdown
         document.getElementById('dropdownInput').value = chosenStudentText;
         Array.from(document.getElementById("myDropdown").getElementsByTagName("a"))
@@ -126,7 +125,6 @@
         for (i = selectbox.options.length - 1; i >= 0; i--) {
             selectbox.remove(i);
         }
-
     }
 
     function getCSTableData(){
@@ -157,7 +155,6 @@
         });
         TableData.shift();
         return TableData;
-
     }
 
     function downloadNotKnownStudents(notKnownStudents) {
@@ -168,18 +165,14 @@
             } else {
                 csv += row.join(',');
             }
-
             csv += "\n";
         });
+
         var today = new Date();
         var hiddenElement = document.createElement('a');
         hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
         hiddenElement.target = '_blank';
         hiddenElement.download = today.getDate() + '-'+ today.getMonth() + '-' +today.getFullYear() + '-'+ today.getHours() + ':' + today.getMinutes() +  '-'+ 'Niet-gekoppelde-studenten.csv' ;
         hiddenElement.click();
-
     }
-
-
-
 </script>

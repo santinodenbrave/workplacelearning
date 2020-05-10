@@ -71,9 +71,7 @@ export default class educationProgramsApp extends React.Component {
             this.setState({selectedProgramId: null});
             this.setState({programs: update(this.state.programs, {$splice: [[index, 1]]})});
         }
-
     }
-
 
     render() {
         if (this.state.loading) return <div className="loader">Loading...</div>;
@@ -143,8 +141,6 @@ export default class educationProgramsApp extends React.Component {
         return <EditProgram id={this.state.selectedProgramId}
                             programOnNameChange={this.updateProgramName}
                             onDelete={this.onDeleteEducationProgram.bind(this)}
-
         />;
     }
-
 }

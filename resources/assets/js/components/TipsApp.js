@@ -11,7 +11,6 @@ import {normalize} from "normalizr";
 import {Schema} from "../Schema";
 import TipEditPage from "./Tips/TipEditPage";
 
-
 const rootReducer = combineReducers({entities, coupleStatistic, tipEditPageUi});
 const store = createStore(rootReducer);
 
@@ -19,14 +18,15 @@ window.getState = store.getState;
 
 const mapping = {
     state: state => state,
-    dispatch: dispatch => ({loadData: () => axios.get('/api/tips')
+    dispatch: dispatch => ({
+        loadData: () => axios.get('/api/tips')
             .then(response => {
                 dispatch(uiActions.addSelectableStatisticVariables(response.data.statisticVariables));
                 delete response.data.statisticVariables;
                 dispatch(entityActions.addEntities(normalize(response.data, Schema.loadSchema).entities));
-            })})
+            })
+    })
 };
-
 
 class TipsApp extends React.Component {
 
@@ -43,7 +43,9 @@ class TipsApp extends React.Component {
 
     render = () => <Switch>
         <Route exact path={'/tip/:id'} component={TipEditPage}/>
-        <Route exact path={'/'} render={() => <IndexPage history={this.props.history} currentPage={this.state.currentPage} setCurrentPage={(page) => this.setState({currentPage: page})} />}/>
+        <Route exact path={'/'}
+               render={() => <IndexPage history={this.props.history} currentPage={this.state.currentPage}
+                                        setCurrentPage={(page) => this.setState({currentPage: page})}/>}/>
     </Switch>
 }
 
@@ -59,7 +61,6 @@ const root = () => <Provider store={store}>
 </Provider>;
 
 export default root;
-
 
 class ErrorBoundary extends React.Component {
     constructor(props) {

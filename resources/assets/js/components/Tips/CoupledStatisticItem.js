@@ -87,8 +87,6 @@ const CoupledStatisticItem = ({tip, coupledStatistic, statistic, educationProgra
         </div>
 
     </div>;
-
-
 };
 
 export default CoupledStatisticItem;

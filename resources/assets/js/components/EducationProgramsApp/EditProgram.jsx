@@ -81,7 +81,6 @@ export default class EditProgram extends React.Component {
                         </div>
                     </div>
 
-
                     <div className={"col-md-3"}>
                         <a onClick={() => this.onClickToggleDisableProgram(this.props.id)}>
                             {program.disabled ? Lang.get('react.program-enable') : Lang.get('react.program-disable')}
@@ -102,18 +101,11 @@ export default class EditProgram extends React.Component {
                         </a>
                     </div>
 
-
                 </div>
-
             </div>
-
             <hr/>
-
             <Cohorts programId={program.ep_id} cohorts={program.cohorts} programType={program.eptype_id}/>
-
 
         </div>;
     }
-
-
 }

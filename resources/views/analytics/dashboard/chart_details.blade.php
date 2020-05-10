@@ -12,7 +12,6 @@
 </div>
 
 <script>
-
     $.getJSON("{{ route('charts-details', $idLabel) }}", function (data) {
         if (data.length <= 0) {
             $('#values').append(`<p> @lang('dashboard.no-descriptions') </p>`);
@@ -21,7 +20,7 @@
 
         let duration = '';
 
-        if(data[0]['duration'] != undefined)
+        if (data[0]['duration'] != undefined)
             duration = `<th scope="col"> @lang('dashboard.hour') </th>`;
 
         $('#values').append(
@@ -44,7 +43,7 @@
 
         const descriptionsCollection = [];
 
-        data.forEach(function(entry) {
+        data.forEach(function (entry) {
             let desc = entry['description'];
             let duration = entry['duration'];
 
@@ -55,7 +54,7 @@
                     <td>${duration}</td>
                 </tr>`;
 
-            if(duration === undefined) {
+            if (duration === undefined) {
                 template = `<tr>
                     <td>${desc}</td>
                 </tr>`;
@@ -64,21 +63,20 @@
             $('#table_body').append(template);
         });
 
-        $('#description-copier').click(function() {
+        $('#description-copier').click(function () {
             navigator.clipboard.writeText(descriptionsCollection.join("\t"))
-                .catch(function() {
+                .catch(function () {
                     $('#description-copier').text('@lang("dashboard.copy-descriptions-error")');
                 })
-                .then(function() {
+                .then(function () {
                     $('#description-copier').text('@lang("dashboard.copy-descriptions-success")');
                 })
-                .finally(function() {
-                    setTimeout(function() {
+                .finally(function () {
+                    setTimeout(function () {
                         $('#description-copier').text('@lang("dashboard.copy-descriptions")');
                     }, 5000);
                 })
             ;
         })
     });
-
 </script>

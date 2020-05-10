@@ -21,16 +21,13 @@ statisticVariable.define({
 });
 coupledStatistic.define({statistic});
 
-
 const tips = new schema.Array(tip);
 const cohorts = new schema.Array(cohort);
 const statistics = new schema.Array(statistic);
 const statisticVariables = new schema.Array(statisticVariable);
 const educationProgramTypes = new schema.Array(educationProgramType);
 const educationPrograms = new schema.Array(educationProgram);
-
 const loadSchema = {tips, cohorts, statistics, statisticVariables, educationProgramTypes, educationPrograms};
-
 
 export const Schema = {
     tip, cohort, coupledStatistic, statisticVariable, educationProgramType,

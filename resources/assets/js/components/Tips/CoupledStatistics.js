@@ -84,7 +84,6 @@ class CoupledStatistics extends React.Component {
             if (stat.education_program_type === 'producing') hasProducingCoupled = true;
         });
 
-
         return <div>
             <h3>{Lang.get('tips.coupled-statistics')}</h3>
 
@@ -117,9 +116,7 @@ class CoupledStatistics extends React.Component {
                         })
                     }
                 </div>
-
             </div>
-
 
             <Modal open={this.state.showCoupleStatisticModal} center
                    onClose={() => this.setState({showCoupleStatisticModal: false})}
@@ -127,7 +124,6 @@ class CoupledStatistics extends React.Component {
                 <div className="panel-body">
                     <h3 style={{display: 'inline-block'}}>{Lang.get('tips.couple-statistic')}</h3>
                     <br/>
-
 
                     <strong>{Lang.get('statistics.select-statistic')}</strong>
                     <div className="row">
@@ -218,7 +214,6 @@ class CoupledStatistics extends React.Component {
         </div>
     }
 }
-
 
 const mapping = {
     state: state => {

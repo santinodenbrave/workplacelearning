@@ -14,9 +14,7 @@
                 <a href="{{ route('admin-student-details', ['student' => $wplp->student]) }}">
                     Back to student
                 </a>
-
                 <br/><br/>
-
                 @card
                 <h3>Edit details</h3>
 

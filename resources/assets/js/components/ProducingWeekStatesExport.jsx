@@ -12,7 +12,6 @@ export default class ProducingWeekStatesExport extends React.Component {
         };
     }
 
-
     render() {
         return <div className={'row'}>
             <div className={"col-md-2"}>
@@ -29,6 +28,4 @@ export default class ProducingWeekStatesExport extends React.Component {
             </div>
         </div>;
     }
-
-
 }

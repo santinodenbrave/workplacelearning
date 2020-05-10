@@ -20,8 +20,6 @@ use App\SavedLearningItem
         <div class="row">
             <!-- Profile Info -->
             <div class="col-md-3">
-
-
                 @card
                     <h1>{{ __('saved_learning_items.saved') }}</h1>
                     <h2>{{ __('saved_learning_items.timeline') }}</h2>
@@ -39,11 +37,8 @@ use App\SavedLearningItem
                         @endforeach
                     @endif
                     @endforeach
-
                 @endcard
-
             </div>
-
          </div>
     </div>
 @stop

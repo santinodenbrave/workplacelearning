@@ -7,7 +7,6 @@ import Card from "../Card";
 
 export default class Cohorts extends React.Component {
 
-
     constructor(props) {
         super();
         this.state = Object.assign({}, props, {
@@ -77,9 +76,7 @@ export default class Cohorts extends React.Component {
                         {!this.state.showDisabledCohorts && Lang.get('react.cohorts-show-disabled')}
                     </a>
                 </div>
-
             </div>
-
 
             <div className={"row"}>
 
@@ -125,7 +122,6 @@ export default class Cohorts extends React.Component {
             </div>
             <hr/>
 
-
             {(this.state.selectedCohortId !== null && this.state.loading === false) &&
 
             <div>
@@ -163,20 +159,20 @@ export default class Cohorts extends React.Component {
                                                        });
                                                    this.updateCohort();
                                                }}/>
-                                     <div className="form-group">
-                                        <label htmlFor="cohort-feedback">{Lang.get('react.cohort-feedback')}</label>
-                                        <input name="cohort-feedback-chance" type="text" className="form-control"
-                                               value={selectedCohort.feedback_chance}
-                                               onChange={e => {
-                                                   this.setState(
-                                                       {
-                                                           cohorts: update(this.state.cohorts, {
-                                                               [this.cohortIndex(selectedCohort.id)]: {feedback_chance: {$set: e.target.value}}
-                                                           })
-                                                       });
-                                                   this.updateCohort();
-                                               }}/>
-                                    </div>
+                                        <div className="form-group">
+                                            <label htmlFor="cohort-feedback">{Lang.get('react.cohort-feedback')}</label>
+                                            <input name="cohort-feedback-chance" type="text" className="form-control"
+                                                   value={selectedCohort.feedback_chance}
+                                                   onChange={e => {
+                                                       this.setState(
+                                                           {
+                                                               cohorts: update(this.state.cohorts, {
+                                                                   [this.cohortIndex(selectedCohort.id)]: {feedback_chance: {$set: e.target.value}}
+                                                               })
+                                                           });
+                                                       this.updateCohort();
+                                                   }}/>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -222,7 +218,6 @@ export default class Cohorts extends React.Component {
                     </div>
                 </div>
 
-
                 <br/>
 
                 <div className="row">
@@ -252,17 +247,10 @@ export default class Cohorts extends React.Component {
                                             programId={this.props.programId} cohortId={this.state.selectedCohortId}
                             />
                         </div>
-
                     }
                 </div>
-
-
             </div>
             }
-
-
         </div>;
     }
-
-
 }

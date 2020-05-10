@@ -25,11 +25,6 @@
         </div>
     </div>
     <script>
-
-        //Chart.defaults.global.animation.onComplete = () => {
-            //console.log('finished');
-        //};
-
         (function () {
 
             var ctxh = $('#myChart');
@@ -38,7 +33,7 @@
                 data: {
                     labels: [<?php
                         $items = array_map(function ($key) use ($chart) {
-                            return "'".substr($key->{$chart->x_label->name}, 0, 33)."'";
+                            return "'" . substr($key->{$chart->x_label->name}, 0, 33) . "'";
                         }, $chart->analysis->data['data']);
                         echo join(', ', $items);
                         ?>],
@@ -66,7 +61,7 @@
                         ],
                         data: [<?php
                             $x_items = array_map(function ($key) use ($chart) {
-                                return "'".$key->{$chart->y_label->name}."'";
+                                return "'" . $key->{$chart->y_label->name} . "'";
                             }, $chart->analysis->data['data']);
                             echo join(', ', $x_items);
                             ?>]
@@ -76,15 +71,15 @@
                     tooltips: {
                         callbacks: {
                             @if($chart->type->slug == 'pie')
-                            label: function(tooltipItem, data) {
+                            label: function (tooltipItem, data) {
                                 var dataset = data.datasets[tooltipItem.datasetIndex];
                                 var meta = dataset._meta[Object.keys(dataset._meta)[0]];
                                 var total = meta.total;
                                 var currentValue = dataset.data[tooltipItem.index];
-                                var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                                var percentage = parseFloat((currentValue / total * 100).toFixed(1));
                                 return currentValue + ' (' + percentage + '%)';
                             },
-                            title: function(tooltipItem, data) {
+                            title: function (tooltipItem, data) {
                                 return data.labels[tooltipItem[0].index];
                             },
                             @endif

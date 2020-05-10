@@ -37,8 +37,6 @@
                 @endwhile
             </div>
         </div>
-
-
     </div>
 
 @stop

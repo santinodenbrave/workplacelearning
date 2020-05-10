@@ -159,8 +159,6 @@ class UpdateForm extends React.Component {
                 <div className="col-md-4">
 
                     <h4>{Lang.get('react.statistic.select-variable-one')} filters</h4>
-
-
                     {
                         this.state.statisticVariableOneFilters.map((filter, filterIndex) => {
 
@@ -179,8 +177,6 @@ class UpdateForm extends React.Component {
                             </div>;
                         })
                     }
-
-
                 </div>
 
                 <div className="col-md-4">
@@ -196,7 +192,6 @@ class UpdateForm extends React.Component {
                                 </option>)}
                     </select>
                 </div>
-
 
                 <div className="col-md-4">
 
@@ -217,8 +212,6 @@ class UpdateForm extends React.Component {
                                     })
                                 }
                             </div>;
-
-
                         })
                     }
                 </div>
@@ -239,7 +232,6 @@ class UpdateForm extends React.Component {
         </div>;
     }
 }
-
 
 const mapState = (state, {id, history}) => {
     const selectedStatistic = state.entities.statistics[id];

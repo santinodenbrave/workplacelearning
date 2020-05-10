@@ -11,9 +11,7 @@
     <div class="container-fluid">
         {{ Form::open(array('id' => 'taskForm', 'url' => route('process-acting-update', [$activity->laa_id]), 'files' => true)) }}
         <div id="taskFormError" class="alert alert-error" style="display: none">
-
         </div>
-
         <div class="panel panel-default">
             <div class="panel-body">
                 <h3>{{ __('activity.activity') }}</h3>
@@ -36,8 +34,8 @@
                     </div>
                     <div class="col-md-3 buttons">
                         <h4>{{ __('activity.category') }} <i class="fa fa-info-circle" aria-hidden="true"
-                                                                    data-toggle="tooltip" data-placement="bottom"
-                                                                    title="{{ trans('tooltips.acting_when') }}"></i>
+                                                             data-toggle="tooltip" data-placement="bottom"
+                                                             title="{{ trans('tooltips.acting_when') }}"></i>
                         </h4>
                         @foreach ($timeslots as $key => $value)
                             <label><input type="radio" name="timeslot"
@@ -47,8 +45,8 @@
                     </div>
                     <div class="col-md-3 buttons">
                         <h4>{{ __('activity.with') }} <i class="fa fa-info-circle" aria-hidden="true"
-                                                                data-toggle="tooltip" data-placement="bottom"
-                                                                title="{{ trans('tooltips.acting_with') }}"></i></h4>
+                                                         data-toggle="tooltip" data-placement="bottom"
+                                                         title="{{ trans('tooltips.acting_with') }}"></i></h4>
                         @foreach ($resourcePersons as $key => $value)
                             <label><input type="radio" name="res_person"
                                           value="{{ $value->rp_id }}" {{ ((old('res_person') == $value->rp_id) ? 'checked' : ($activity->res_person_id == $value->rp_id)) ? 'checked' : null }} /><span>{{ $value->localizedLabel() }}</span></label>
@@ -58,8 +56,8 @@
 
                     <div class="col-md-3 buttons">
                         <h4>{{ __('activity.theory') }} <i class="fa fa-info-circle" aria-hidden="true"
-                                                                  data-toggle="tooltip" data-placement="bottom"
-                                                                  title="{{ trans('tooltips.acting_theory') }}"></i>
+                                                           data-toggle="tooltip" data-placement="bottom"
+                                                           title="{{ trans('tooltips.acting_theory') }}"></i>
                         </h4>
                         <label><input type="radio" name="res_material" id="rm_none"
                                       value="none" {{ ((old('res_material') === 'none' || !$activity->res_material_id)) ? 'checked' : null }}/><span>{{ __('activity.none') }}</span></label>
@@ -73,23 +71,19 @@
                                    placeholder="{{ __('activity.source-description') }}"
                                    value="{{ $activity->res_material_detail }}"/>
                         </div>
-
                         <div class="clearfix"></div>
                     </div>
-
                 </div>
-
                 <hr/>
 
                 <div class="row">
-
                     <div class="col-md-3 col-md-offset-3">
                         <div>
                             <h4>{{ __('activity.learningquestion') }} <i class="fa fa-info-circle"
-                                                                                aria-hidden="true"
-                                                                                data-toggle="tooltip"
-                                                                                data-placement="bottom"
-                                                                                title="{{ trans('tooltips.acting_learninggoal') }}"></i>
+                                                                         aria-hidden="true"
+                                                                         data-toggle="tooltip"
+                                                                         data-placement="bottom"
+                                                                         title="{{ trans('tooltips.acting_learninggoal') }}"></i>
                             </h4>
                             <select name="learning_goal" class="form-control fit-bs">
                                 @foreach ($learningGoals as $key => $value)
@@ -103,12 +97,13 @@
 
                         <div>
                             <h4>{{ __('activity.competence') }} <i class="fa fa-info-circle" aria-hidden="true"
-                                                                          data-toggle="tooltip" data-placement="bottom"
-                                                                          title="{{ trans('tooltips.acting_competence') }}"></i>
+                                                                   data-toggle="tooltip" data-placement="bottom"
+                                                                   title="{{ trans('tooltips.acting_competence') }}"></i>
                             </h4>
                             <div class="wrap form-control fit-bs">
                                 <div class="crop">
-                                    <select id="competence-select" name="competence[]" size="{{ count($competencies) }}" multiple>
+                                    <select id="competence-select" name="competence[]" size="{{ count($competencies) }}"
+                                            multiple>
                                         @foreach ($competencies as $value)
                                             <option value="{{ $value->competence_id }}" {{ in_array($value->competence_id, old('competence', $activity->competence->pluck('competence_id')->all()), false) ? 'selected' : null }}>{{ $value->localizedLabel() }}</option>
                                         @endforeach
@@ -126,7 +121,6 @@
                     <div class="col-md-3">
 
                         <div>
-
                             <h4>{{ __('process.evidence') }}</h4>
                             <strong>{{__('process.evidence_uploaded')}}</strong><br/>
                             @if($activity->evidence->count() > 0)
@@ -148,7 +142,6 @@
 
                             </ul>
                         </div>
-
                     </div>
                 </div>
 
@@ -180,8 +173,8 @@
                     <div class="col-md-3 shortReflection"
                          @if(!$reflectionSettings['shortReflection']) style="display: none;" @endif>
                         <h4>{{ __('activity.whatdoyouneed') }} <i class="fa fa-info-circle" aria-hidden="true"
-                                                                         data-toggle="tooltip" data-placement="bottom"
-                                                                         title="{{ trans('tooltips.acting_required_wp') }}"></i>
+                                                                  data-toggle="tooltip" data-placement="bottom"
+                                                                  title="{{ trans('tooltips.acting_required_wp') }}"></i>
                         </h4>
                         <textarea class="form-control fit-bs" name="support_wp" rows="5" id="support_wp"
                                   cols="19">{{ (count($errors) > 0) ? old('support_wp') : $activity->support_wp }}</textarea>
@@ -193,10 +186,10 @@
                     <div class="col-md-3 shortReflection"
                          @if(!$reflectionSettings['shortReflection']) style="display: none;" @endif>
                         <h4>{{ __('activity.whatdoyouneedschool') }} <i class="fa fa-info-circle"
-                                                                               aria-hidden="true"
-                                                                               data-toggle="tooltip"
-                                                                               data-placement="bottom"
-                                                                               title="{{ trans('tooltips.acting_required_ep') }}"></i>
+                                                                        aria-hidden="true"
+                                                                        data-toggle="tooltip"
+                                                                        data-placement="bottom"
+                                                                        title="{{ trans('tooltips.acting_required_ep') }}"></i>
                         </h4>
                         <textarea class="form-control fit-bs" name="support_ed" rows="5" id="support_ed"
                                   cols="19">{{ (count($errors) > 0) ? old('support_ed') : $activity->support_ed }}</textarea>
@@ -204,7 +197,6 @@
                            data-target-title="{{ __('activity.whatdoyouneedschool') }}"
                            class="canBeEnlarged">{{ trans('process.enlarge') }}</a>
                     </div>
-
 
                     @if($activity->reflection)
                         @include('users.student.acting.reflection.partials.edit-reflection', ['reflection' => $activity->reflection, 'reflectionSettings' => $reflectionSettings])
@@ -216,10 +208,7 @@
 
                 <div class="visible-xs-block visible-sm-block">
                     <hr/>
-
-
                     <input type="submit" class="btn btn-info btn-block" value="{{ __('activity.save') }}"/>
-
                 </div>
                 <div class="hidden-xs hidden-sm">
                     <div class="row">
@@ -236,7 +225,6 @@
     </div>
 
     @include('js.activity_save')
-
 
     {{-- Modal used for enlarging fields --}}
     <div class="modal fade" id="enlargedModal" tabindex="-1" role="dialog">

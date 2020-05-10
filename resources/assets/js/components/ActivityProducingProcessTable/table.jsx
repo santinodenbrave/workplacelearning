@@ -7,7 +7,6 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import 'react-datepicker/dist/react-datepicker.css';
 
-
 export default class ActivityProducingProcessTable extends React.Component {
 
     mode = window.activityProducingTableMode;
@@ -16,10 +15,10 @@ export default class ActivityProducingProcessTable extends React.Component {
         super(props);
         let earliestDate = moment(), latestDate = moment();
         window.activities.forEach(activity => {
-            if(moment(activity.date, "DD-MM-YYYY") < earliestDate || earliestDate === undefined) {
+            if (moment(activity.date, "DD-MM-YYYY") < earliestDate || earliestDate === undefined) {
                 earliestDate = moment(activity.date, "DD-MM-YYYY");
             }
-            if(moment(activity.date, "DD-MM-YYYY") > latestDate || latestDate === undefined) {
+            if (moment(activity.date, "DD-MM-YYYY") > latestDate || latestDate === undefined) {
                 latestDate = moment(activity.date, "DD-MM-YYYY");
             }
         });
@@ -52,12 +51,11 @@ export default class ActivityProducingProcessTable extends React.Component {
             chain: {rules: [], selectedRules: []},
         };
 
-
         // Build filters
         activities.map((activity) => {
 
             const addFilter = (property, filter) => {
-                if(filters[property].rules.indexOf(filter) === -1) {
+                if (filters[property].rules.indexOf(filter) === -1) {
                     filters[property].rules.push(filter);
                 }
             };
@@ -67,8 +65,6 @@ export default class ActivityProducingProcessTable extends React.Component {
             addFilter('category', activity.category);
             addFilter('difficulty', activity.difficulty);
             addFilter('chain', activity.chain);
-
-
         });
 
         filters.duration.rules.sort();
@@ -123,7 +119,6 @@ export default class ActivityProducingProcessTable extends React.Component {
                 if (this.state.filters.category.selectedRules.length === 0) {
                     return true;
                 }
-
                 return this.state.filters.category.selectedRules.indexOf(activity.category) > -1;
             })
             // Filter for difficulty
@@ -139,7 +134,6 @@ export default class ActivityProducingProcessTable extends React.Component {
                 if (this.state.filters.chain.selectedRules.length === 0) {
                     return true;
                 }
-
                 return this.state.filters.chain.selectedRules.indexOf(activity.chain) > -1;
             })
             .filter((activity) => {
@@ -162,11 +156,11 @@ export default class ActivityProducingProcessTable extends React.Component {
     exportHandler() {
         const exporter = new ProducingActivityProcessExporter(this.state.selectedExport, this.state.exportFeedback, this.filterActivities(this.state.activities));
         const exportFeedback = (this.state.exportFeedback ? 1 : 0);
-        
-        if(this.state.selectedExport === "email") {
+
+        if (this.state.selectedExport === "email") {
             this.setState({emailAlert: undefined});
             exporter.mail(this.state.email, this.state.emailComment, response => {
-                if(response.hasOwnProperty("data") && response.data.status === "success") {
+                if (response.hasOwnProperty("data") && response.data.status === "success") {
                     this.setState({email: "", emailComment: '', emailAlert: true});
                 } else {
                     this.setState({email: "", emailComment: '', emailAlert: true});
@@ -175,7 +169,7 @@ export default class ActivityProducingProcessTable extends React.Component {
 
 
             });
-        } else if(this.state.selectedExport === "word") {
+        } else if (this.state.selectedExport === "word") {
             exporter.txt();
             const exportText = exporter.outputData;
             axios.post('/activity-export-doc', {exportText})
@@ -191,7 +185,6 @@ export default class ActivityProducingProcessTable extends React.Component {
     isMini = () => this.mode === 'mini';
     isDetail = () => this.mode === 'detail';
 
-
     render() {
         let filteredActivities = this.filterActivities(this.state.activities);
         let groupedByDay = this.groupByDay(filteredActivities);
@@ -203,63 +196,71 @@ export default class ActivityProducingProcessTable extends React.Component {
 
             {this.isMini() && <a href={window.progressLink}>{Lang.get('react.progress-link-label')}</a>}
             <div className="table-responsive">
-            <table className="table blockTable">
-                <thead className="blue_tile">
-                <tr>
-                    <td>{/* Edit URL, no table header */}</td>
-                    <td>{Lang.get('react.time')}</td>
-                    <td colSpan={2}>{Lang.get('react.description')}</td>
-                    <td>{Lang.get('react.aid')}</td>
-                    <td>{Lang.get('react.category')}</td>
-                    <td>{Lang.get('react.complexity')}</td>
-                    <td>{Lang.get('react.status')}</td>
-                    <td>{Lang.get('react.chain')}</td>
-                    <td/>
+                <table className="table blockTable">
+                    <thead className="blue_tile">
+                    <tr>
+                        <td>{/* Edit URL, no table header */}</td>
+                        <td>{Lang.get('react.time')}</td>
+                        <td colSpan={2}>{Lang.get('react.description')}</td>
+                        <td>{Lang.get('react.aid')}</td>
+                        <td>{Lang.get('react.category')}</td>
+                        <td>{Lang.get('react.complexity')}</td>
+                        <td>{Lang.get('react.status')}</td>
+                        <td>{Lang.get('react.chain')}</td>
+                        <td/>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-                </tr>
-                </thead>
-                <tbody>
+                    {Object.keys(groupedByDay).map(day => {
+                        const activities = groupedByDay[day].sort((a, b) => a.id - b.id);
+                        const statistics = this.calculateStatisticsForActivities(activities);
 
-                {Object.keys(groupedByDay).map(day => {
-                    const activities = groupedByDay[day].sort((a, b) => a.id - b.id);
-                    const statistics = this.calculateStatisticsForActivities(activities);
+                        let hoursCell = <td>{Lang.get('activity.hours')}: {statistics.totalHours.toFixed(2)}</td>;
 
-                    let hoursCell = <td>{Lang.get('activity.hours')}: {statistics.totalHours.toFixed(2)}</td>;
+                        if (statistics.totalHours < 1) {
+                            hoursCell =
+                                <td>{Lang.get('activity.minutes')}: {(statistics.totalHours * 60).toFixed(2)}</td>;
+                        }
 
-                    if (statistics.totalHours < 1) {
-                        hoursCell = <td>{Lang.get('activity.minutes')}: {(statistics.totalHours * 60).toFixed(2)}</td>;
-                    }
+                        return [<tr key={day} style={{
+                            backgroundColor: 'rgba(0,161,226, 0.45)',
+                            color: 'rgba(255,255,255)',
+                            fontWeight: 'bold'
+                        }}>
+                            <td>{day}</td>
+                            {hoursCell}
+                            <td>{Lang.get('activity.difficulty')}: {statistics.difficulty}</td>
+                            <td>{Lang.get('activity.mostOftenCategory')}: {statistics.mostOftenCategory}</td>
+                            <td colSpan={8}/>
+                        </tr>, activities.map((activity) => {
+                            return <Row key={activity.id} activity={activity}/>
+                        })];
+                    })}
 
-                    return [<tr key={day} style={{backgroundColor: 'rgba(0,161,226, 0.45)', color: 'rgba(255,255,255)', fontWeight: 'bold'}}>
-                        <td>{day}</td>
-                        {hoursCell}
-                        <td>{Lang.get('activity.difficulty')}: {statistics.difficulty}</td>
-                        <td>{Lang.get('activity.mostOftenCategory')}: {statistics.mostOftenCategory}</td>
-                        <td colSpan={8}/>
-                    </tr>, activities.map((activity) => {
-                        return <Row key={activity.id} activity={activity}/>
-                    })];
-                })}
 
-
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
             </div>
         </div>
     }
 
     renderFilter() {
         return <div>
-            <h3 style={{cursor:"pointer"}} onClick={ () => {$('.filters').slideToggle()}}><i className="fa fa-arrow-circle-o-down" aria-hidden="true"/> {Lang.get('react.filters')}</h3>
-            <div className="filters row" style={{display:"none"}}>
+            <h3 style={{cursor: "pointer"}} onClick={() => {
+                $('.filters').slideToggle()
+            }}><i className="fa fa-arrow-circle-o-down" aria-hidden="true"/> {Lang.get('react.filters')}</h3>
+            <div className="filters row" style={{display: "none"}}>
                 <div className="date col-md-2">
-                    <h4>{ Lang.get('react.date') }</h4>
+                    <h4>{Lang.get('react.date')}</h4>
                     <div>
                         <strong>{Lang.get('react.startdate')}:</strong><br/>
-                        <DatePicker className={"form-control"} selected={this.state.startDate} dateFormat="dd/MM/yyyy" onChange={date => this.setState({startDate: date})} />
+                        <DatePicker className={"form-control"} selected={this.state.startDate} dateFormat="dd/MM/yyyy"
+                                    onChange={date => this.setState({startDate: date})}/>
                         <br/><br/>
                         <strong>{Lang.get('react.enddate')}:</strong><br/>
-                        <DatePicker className={"form-control"} selected={this.state.endDate} dateFormat="dd/MM/yyyy" onChange={date => this.setState({endDate: date})} />
+                        <DatePicker className={"form-control"} selected={this.state.endDate} dateFormat="dd/MM/yyyy"
+                                    onChange={date => this.setState({endDate: date})}/>
                     </div>
                     <div style={{clear: 'both'}}/>
                 </div>
@@ -301,7 +302,8 @@ export default class ActivityProducingProcessTable extends React.Component {
                     <h4>{Lang.get('react.complexity')}</h4>
                     <div className="buttons">
                         {this.state.filters.difficulty.rules.map(rule => {
-                            return <FilterRule key={rule} type="difficulty" onClickHandler={this.updateFilter} rule={rule}
+                            return <FilterRule key={rule} type="difficulty" onClickHandler={this.updateFilter}
+                                               rule={rule}
                                                activated={this.state.filters.difficulty.selectedRules.indexOf(rule) > -1}/>
                         })}
                     </div>
@@ -325,10 +327,12 @@ export default class ActivityProducingProcessTable extends React.Component {
     }
 
     renderExport() {
-        return <div className="export" style={{paddingBottom:"15px"}}>
+        return <div className="export" style={{paddingBottom: "15px"}}>
 
             <label>{Lang.get('react.export-to')}&nbsp;
-                <select onChange={e => {this.setState({selectedExport: e.target.value})}} defaultValue={this.state.selectedExport}>
+                <select onChange={e => {
+                    this.setState({selectedExport: e.target.value})
+                }} defaultValue={this.state.selectedExport}>
                     {this.state.exports.map(type => {
                         return <option key={type} value={type}>{type}</option>
                     })}
@@ -337,19 +341,24 @@ export default class ActivityProducingProcessTable extends React.Component {
             <br/>
             <label style={{marginTop: '5px'}}>
                 <input type="checkbox" checked={this.state.exportFeedback}
-                        onChange={() => this.setState({exportFeedback: !this.state.exportFeedback})}/>
+                       onChange={() => this.setState({exportFeedback: !this.state.exportFeedback})}/>
                 &nbsp;{Lang.get('react.with-feedback')}
             </label>
             <br/>
-            <button className="btn btn-info" onClick={this.exportHandler} disabled={this.state.activities.length === 0 || (this.state.selectedExport === 'email' && (!this.state.email.includes('@') || !this.state.email.includes('.')) )}>{Lang.get('react.export')}</button>
+            <button className="btn btn-info" onClick={this.exportHandler}
+                    disabled={this.state.activities.length === 0 || (this.state.selectedExport === 'email' && (!this.state.email.includes('@') || !this.state.email.includes('.')))}>{Lang.get('react.export')}</button>
             <br/>
             {this.state.selectedExport === 'email' &&
             <div style={{maxWidth: "400px"}}>
                 <label>
-                    {Lang.get('react.mail-to')}: <input type="email" className="form-control" onChange={e => this.setState({email: e.target.value})} value={this.state.email} />
+                    {Lang.get('react.mail-to')}: <input type="email" className="form-control"
+                                                        onChange={e => this.setState({email: e.target.value})}
+                                                        value={this.state.email}/>
                 </label><br/>
                 <label>
-                    {Lang.get('react.mail-comment')}: <textarea className="form-control" onChange={e => this.setState({emailComment: e.target.value})} value={this.state.emailComment} />
+                    {Lang.get('react.mail-comment')}: <textarea className="form-control"
+                                                                onChange={e => this.setState({emailComment: e.target.value})}
+                                                                value={this.state.emailComment}/>
                 </label>
                 {
                     this.state.emailAlert === undefined &&
@@ -398,12 +407,6 @@ export default class ActivityProducingProcessTable extends React.Component {
                 statistics.mostOftenCategoryCount = count;
             }
         });
-
-
         return statistics;
     }
-
-
-
-
 }

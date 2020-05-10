@@ -1,5 +1,7 @@
 <?php
+
 use App\Repository\SearchFilter;
+
 /** @var SearchFilter $filter */
 ?>
 <div class="col-md-3">
@@ -17,8 +19,9 @@ use App\Repository\SearchFilter;
                         @foreach($filter->getOptions()['enabled'] as $key => $value)
 
                             <option
-                                    @if((int) request('filter.' . $filter->getProperty()) === (int) $key) selected @endif
-                            value="{{ $key }}">{{ __($value) }}</option>
+                                    @if((int) request('filter.' . $filter->getProperty()) === (int) $key) selected
+                                    @endif
+                                    value="{{ $key }}">{{ __($value) }}</option>
 
                         @endforeach
                     </optgroup>
@@ -27,23 +30,23 @@ use App\Repository\SearchFilter;
                         @foreach($filter->getOptions()['disabled'] as $key => $value)
 
                             <option
-                                    @if((int) request('filter.' . $filter->getProperty(), -1) === (int) $key) selected @endif
-                            value="{{ $key }}">{{ __($value) }}</option>
+                                    @if((int) request('filter.' . $filter->getProperty(), -1) === (int) $key) selected
+                                    @endif
+                                    value="{{ $key }}">{{ __($value) }}</option>
 
                         @endforeach
                     </optgroup>
 
-                {{-- If not using groups, render simple select --}}
+                    {{-- If not using groups, render simple select --}}
                 @else
 
                     @foreach($filter->getOptions() as $key => $value)
 
                         <option
-                                @if((int) request('filter.' . $filter->getProperty(), -1) === (int) $key) selected @endif
-                        value="{{ $key }}">{{ __($value) }}</option>
-
+                                @if((int) request('filter.' . $filter->getProperty(), -1) === (int) $key) selected
+                                @endif
+                                value="{{ $key }}">{{ __($value) }}</option>
                     @endforeach
-
                 @endif
             </select>
         </label>

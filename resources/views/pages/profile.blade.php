@@ -14,8 +14,6 @@
         <div class="row">
             <!-- Profile Info -->
             <div class="col-md-3">
-
-
                 @card
                 {!! Form::open(array('url' => URL::to('profiel/update'))) !!}
                 {!! Form::hidden('student_id', Auth::user()->student_id) !!}
@@ -140,7 +138,6 @@
                 </div>
             @endif
         </div>
-
 
         <div class="row">
             <div class="col-md-11">

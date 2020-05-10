@@ -1,6 +1,5 @@
 $(document).ready(function () {
     // Tooltips
-
     // $('#custom_hours_container').hide();
     $("#hours_custom").click(function () {
         $('#custom_hours_container').show();
@@ -31,6 +30,7 @@ $(document).ready(function () {
             $('[name="personsource"]').hide();
             $('[name="internetsource"]').hide();
             $('[name="booksource"]').hide();
+
             switch (this.value) {
                 case 'persoon':
                     $('[name="personsource"]').show();
@@ -54,7 +54,6 @@ $(document).ready(function () {
 });
 
 (function () {
-
     $('input[name="aantaluren"]').click(function () {
         if ($(this).attr('id') !== 'hours_custom') {
             $('input[name="aantaluren_custom"]').val('60');
@@ -83,7 +82,7 @@ $(document).ready(function () {
         $(this).siblings().show();
         $("#cond-select-hidden").hide();
         $("#rp_id").trigger("change");
-        if($('input[name="resource"]:checked').val() === 'persoon') {
+        if ($('input[name="resource"]:checked').val() === 'persoon') {
             $('#rp_id').show();
         } else {
             $('#rp_id').hide();

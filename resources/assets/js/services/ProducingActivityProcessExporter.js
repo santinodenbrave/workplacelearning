@@ -17,7 +17,6 @@ export default class ProducingActivityProcessExporter {
     }
 
     csv() {
-
         // Build headers and filter unwanted
         let headers = Object.keys(this.activities[0]);
 

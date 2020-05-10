@@ -46,7 +46,6 @@ class Moments extends React.Component {
 
             <br/><br/>
 
-
             <div className="row">
                 {
                     tip.moments.map(id => <div className="col-md-4" key={id}><MomentItem id={id}/></div>)

@@ -5,9 +5,7 @@ export default class Row extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
             visible: false
-
         }
     }
 
@@ -83,8 +81,6 @@ export default class Row extends React.Component {
             <td>
                 {activity.reflection && activity.reflection.url && <a href={activity.reflection.url}>Download</a>}
             </td>
-
         </tr>
     }
-
 }

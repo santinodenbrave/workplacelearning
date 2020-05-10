@@ -1,5 +1,5 @@
 <div class="col-md-3 fullReflection" @if(!$reflectionSettings['fullReflection']) style="display: none;" @endif>
-    <h4>{{ __('reflection.full_reflection') }}<span id="currentReflection"></span></h4>
+<h4>{{ __('reflection.full_reflection') }}<span id="currentReflection"></span></h4>
 
     <div class="fab">
         <span class="fab-action-button" id="actionButton">
@@ -44,9 +44,7 @@
             </div>
         </div>
     </div>
-
 </div>
-
 
 <script>
     const reflectionUrl = '{{ route('render-reflection-type', ['type' => 'type-param']) }}';
@@ -124,5 +122,4 @@
             currentReflection.text('');
         }
     }
-
 </script>

@@ -211,7 +211,6 @@
                     items += "<option id='" + val + "'>" + val + "</option>";
                 }
             }
-
             colElement.append(items);
         }
 
@@ -227,5 +226,4 @@
         }
 
     </script>
-
 @stop

@@ -4,7 +4,6 @@ export default class FilterRule extends React.Component {
 
     constructor(props) {
         super(props);
-
         // Pre-bind to make sure we have correct this context
         this.handleClick = this.handleClick.bind(this);
     }
@@ -15,11 +14,6 @@ export default class FilterRule extends React.Component {
 
     render() {
         let style = {display: "none"};
-
         return <label><input style={style} type="checkbox" value={this.props.rule} onChange={this.handleClick}/><span>{this.props.rule}&nbsp;</span></label>;
     }
-
-
-
-
 }
