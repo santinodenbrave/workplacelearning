@@ -83,7 +83,7 @@ $isCustomActivityDuration = !in_array($activity->duration, [0.25, 0.50, 0.75, 1.
                     </div>
                     <hr/>
                     <div class="custom">
-                        <label id="hours_custom"><input type="radio" name="aantaluren"
+                        <label id="hours_custom" onclick="showCustomHoursContainer()"><input type="radio" name="aantaluren"
                                                         @if($isCustomActivityDuration) checked @endif
                                                         value="x"/><span>{{ __('activity.other') }}</span></label>
                         <br/>
@@ -111,8 +111,8 @@ $isCustomActivityDuration = !in_array($activity->duration, [0.25, 0.50, 0.75, 1.
                             </div>
 
                             <div class="btn-group btn-group-justified" style="width:100%; margin-top: 5px;">
-                                <a class="btn btn-danger" id="hourDecrease">-</a>
-                                <a class="btn btn-success" id="hourIncrease">+</a>
+                                <a class="btn btn-danger" id="hourDecrease" onclick="decreaseHour()">-</a>
+                                <a class="btn btn-success" id="hourIncrease" onclick="increaseHour()">+</a>
                             </div>
 
 

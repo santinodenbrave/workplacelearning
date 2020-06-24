@@ -1,32 +1,51 @@
+//Show custom hours container
+function showCustomHoursContainer() {
+    $('#custom_hours_container').show();
+};
+
+//Toggle slide up help text
+function slideToggleHelpText() {
+    $('#help-text').slideToggle('slow');
+};
+
+//Show new Category
+function showNewCategory() {
+    $("#category").show();
+};
+
+//Decrease hour with 15 min
+function decreaseHour() {
+    var customHoursAmount = parseInt($('input[name="aantaluren_custom"]').val());
+    const newVal = Math.max(0, customHoursAmount - 15);
+    $('input[name="aantaluren_custom"]').val(newVal);
+};
+
+//Increase hour with 15 min
+function increaseHour() {
+    var customHoursAmount = parseInt($('input[name="aantaluren_custom"]').val());
+    const newVal = customHoursAmount + 15;
+    $('input[name="aantaluren_custom"]').val(newVal);
+};
+
 $(document).ready(function () {
-    $("#rp_id").on('change', function () {
+    $("#rp_id").on('change', showDescription);
+    $(".expand-click").click(resourcePersonUIUpdate);
+
+    //Show or hide description
+    function showDescription() {
         if ($(this).val() === "new" && $(this).is(":visible")) {
             $("#cond-select-hidden").show();
         } else {
             $("#cond-select-hidden").hide();
         }
-    });
+    }
 
-    $(".expand-click").click(resourcePersonUIUpdate);
-
-    $("#hours_custom").click(function () {
-        $('#custom_hours_container').show();
-    });
-
-    $("#help-click").click(function () {
-        $('#help-text').slideToggle('slow');
-    });
-
-    $(".cond-hidden").hide();
-    $("#cond-select-hidden").hide();
-    $("#category").hide();
-    $("#help-text").hide();
-
-    $("#newcat").click(function () {
-        $("#category").show();
-    });
-
-    $('[data-toggle="tooltip"]').tooltip();
+    //Hide multiple elements in page
+    function hideMultipleElements() {
+        $("#cond-select-hidden").hide();
+        $("#category").hide();
+        $("#help-text").hide();
+    }
 
     function resourcePersonUIUpdate() {
         $(".cond-hidden").hide();
@@ -35,26 +54,24 @@ $(document).ready(function () {
         $("#rp_id").trigger("change");
     }
 
+    //Toggle tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+
     // set current state
+    hideMultipleElements();
     resourcePersonUIUpdate();
 
-    $('input[name="aantaluren"]').click(function () {
+    //Set up custom hours
+    $('input[name="aantaluren"]').click(setUpCustomHours);
+
+    function setUpCustomHours() {
         if ($(this).attr('id') !== 'hours_custom') {
             $('input[name="aantaluren_custom"]').val('60');
             $('#custom_hours_container').hide();
         }
-    });
+    };
 
-    $('#hourDecrease').click(function () {
-        const newVal = Math.max(0, parseInt($('input[name="aantaluren_custom"]').val()) - 15);
-        $('input[name="aantaluren_custom"]').val(newVal);
-    });
-
-    $('#hourIncrease').click(function () {
-        const newVal = parseInt($('input[name="aantaluren_custom"]').val()) + 15;
-        $('input[name="aantaluren_custom"]').val(newVal);
-    });
-
+    //Set up date time picker
     $('#date-deadline').datetimepicker({
         locale: 'nl',
         format: 'DD-MM-YYYY',
@@ -66,3 +83,4 @@ $(document).ready(function () {
 }).on('dp.change', function (e) {
     $('#datum').attr('value', moment(e.date).format("DD-MM-YYYY"));
 });
+

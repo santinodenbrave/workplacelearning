@@ -16,7 +16,7 @@ use App\ResourcePerson;
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h4 id="help-click" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u"><i
+                <h4 id="help-click" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" onclick="slideToggleHelpText()"><i
                             class="fa fa-arrow-circle-o-down"
                             aria-hidden="true"></i> {{ __('activity.how-does-this-page-work') }}</h4>
                 <div id="help-text" style="display: none">
@@ -105,7 +105,7 @@ use App\ResourcePerson;
                     </div>
                     <hr/>
                     <div class="custom">
-                        <label id="hours_custom"><input type="radio" name="aantaluren"
+                        <label id="hours_custom" onclick="showCustomHoursContainer()"><input type="radio" name="aantaluren"
                                                         value="x"/><span>{{ __('activity.other') }}</span></label>
                         <br/>
                         <div id="custom_hours_container" class="" style="margin-left: 5px; width:100%; display: none">
@@ -117,8 +117,8 @@ use App\ResourcePerson;
                             </div>
 
                             <div class="btn-group btn-group-justified" style="width:100%; margin-top: 5px;">
-                                <a class="btn btn-danger" id="hourDecrease">-</a>
-                                <a class="btn btn-success" id="hourIncrease">+</a>
+                                <a class="btn btn-danger" id="hourDecrease" onclick="decreaseHour()">-</a>
+                                <a class="btn btn-success" id="hourIncrease" onclick="increaseHour()">+</a>
                             </div>
 
 
@@ -145,7 +145,7 @@ use App\ResourcePerson;
                 </div>
                 <div>
                     <label class="newcat"><input type="radio" name="category_id" value="new"/><span class="new"
-                                                                                                    id="newcat">{{ __('activity.other') }}<br/>({{ __('activity.add') }})</span></label>
+                                                                                                    id="newcat" onclick="showNewCategory()">{{ __('activity.other') }}<br/>({{ __('activity.add') }})</span></label>
                     <input id="category" type="text" maxlength="45" name="newcat" class="form-control"
                            style="width: 150px; margin: 5px; display: none;"
                            placeholder="{{ __('activity.description') }}"/>
@@ -178,8 +178,6 @@ use App\ResourcePerson;
                     <input class="form-control" id="cond-select-hidden" type="text" maxlength="45" name="newswv"
                            style="width: 150px; margin: 5px; display: none"
                            placeholder="Omschrijving"/>
-
-
                 </div>
                 <div id="solocontainer">
                     <label class="expand-click"><input type="radio" name="resource" checked
@@ -266,7 +264,6 @@ use App\ResourcePerson;
         <div class="visible-xs-block visible-sm-block">
             <hr/>
 
-
             <input type="submit" class="btn btn-info btn-block" value="{{ __('activity.save') }}"/>
 
         </div>
@@ -299,7 +296,7 @@ use App\ResourcePerson;
     </div>
     </div>
 
-    <script type="text/javascript">var startDate="<?= $workplacelearningperiod->startdate ?>";</script>
+    <script>var startDate="<?= $workplacelearningperiod->startdate ?>";</script>
     <script src="{{ asset('js/blades-js/users/student/producing/activity/activity.js') }}"></script>
 
     @include('js.activity_save')

@@ -276,6 +276,6 @@
             });
         });
     </script>
-    <script src="{{ asset('js/blades-js/users/student/acting/activity/activity-edit.js') }}"></script>
+    <script src="{{ asset('js/blades-js/users/student/acting/activity/fileList.js') }}"></script>
 
 @stop

@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h4 id="help-click" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u"><i
+                <h4 id="help-click" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" onclick="slideToggleHelpText()"><i
                             class="fa fa-arrow-circle-o-down"
                             aria-hidden="true"></i>&nbsp;{{__('activity.how-does-this-page-work')}}</h4>
                 <div id="help-text" style="display:none">
@@ -303,7 +303,7 @@
                         <button type="button" class="btn btn-default"
                                 data-dismiss="modal">{{ __('general.close') }}</button>
                         <a type="button" class="btn btn-primary"
-                           id="enlargedTextareaSave">{{ __('general.confirm') }}</a>
+                           id="enlargedTextareaSave" onclick="enlargedTextareaSave()">{{ __('general.confirm') }}</a>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -326,6 +326,7 @@
             var startDate="<?= $workplacelearningperiod->startdate ?>";
         </script>
         <script src="{{ asset('js/blades-js/users/student/acting/activity/activity.js') }}"></script>
+        <script src="{{ asset('js/blades-js/users/student/acting/activity/fileList.js') }}"></script>
 
     </div>
 @stop
